@@ -1,0 +1,30 @@
+[ 2016-06-05T03:33:38+08:00 ] 69.170.216.69 /wp-login.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+ERR: 无法加载模块:Wp-login
+
+[ 2016-06-05T03:33:38+08:00 ] 69.170.216.69 /administrator/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+ERR: 无法加载模块:Administrator
+
+[ 2016-06-05T19:54:22+08:00 ] 123.56.5.105 /imjrplus/flink.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+ERR: 无法加载模块:Imjrplus
+
+[ 2016-06-05T19:54:44+08:00 ] 123.56.5.105 /plus/flink.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+ERR: 无法加载模块:Plus
+
+[ 2016-06-05T19:54:45+08:00 ] 123.56.5.105 /plus/flink.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000736s ]
+ERR: 无法加载模块:Plus
+

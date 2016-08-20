@@ -1,0 +1,18 @@
+[ 2016-04-09T22:12:12+08:00 ] ::1 /newPersonal/index.php/Home
+ERR: 非法操作:index
+
+[ 2016-04-09T23:16:06+08:00 ] ::1 /newPersonal/index.php/Home/HomePage.html
+ERR: 无法加载控制器:HomePage
+
+[ 2016-04-09T23:18:30+08:00 ] ::1 /newPersonal/index.php/Home/HomePage.html
+ERR: 无法加载控制器:Home
+
+[ 2016-04-09T23:18:33+08:00 ] ::1 /newPersonal/index.php/Home/Index/HomePage.html
+ERR: 无法加载控制器:Home
+
+[ 2016-04-09T23:21:01+08:00 ] ::1 /newPersonal/index.php/Index/Index.html
+ERR: 模板不存在:./Home/Home/View/Index/HomePage.html
+
+[ 2016-04-09T23:21:38+08:00 ] ::1 /newPersonal/index.php/Admin/Admin/index.html
+ERR: 无法加载控制器:Admin
+

@@ -1,0 +1,12 @@
+[ 2016-04-20T07:16:29+08:00 ] 121.42.0.18 /admin/ecshopfiles.md5
+ERR: 无法加载控制器:Ecshopfiles.md5
+
+[ 2016-04-20T07:16:29+08:00 ] 121.42.0.18 /admin/help/zh_cn/database.xml
+ERR: 无法加载控制器:Help
+
+[ 2016-04-20T07:16:43+08:00 ] 121.42.0.18 /Admin/Images/southidc.css
+ERR: 无法加载控制器:Images
+
+[ 2016-04-20T07:16:47+08:00 ] 121.42.0.18 /Admin/Include/version.xml
+ERR: 无法加载控制器:Include
+

@@ -1,0 +1,12 @@
+[ 2016-03-26T00:02:02+08:00 ] ::1 /newPersonal/index.php/Mine/mine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000589s ]
+ERR: 无法加载模块:Mine
+
+[ 2016-03-26T00:02:39+08:00 ] ::1 /newPersonal/index.php/Mine/Mine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+ERR: 无法加载模块:Mine
+

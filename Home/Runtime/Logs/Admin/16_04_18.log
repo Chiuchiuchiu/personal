@@ -1,0 +1,264 @@
+[ 2016-04-18T22:16:03+08:00 ] ::1 /newPersonal/Admin.php/
+ERR: Think\Controller:where方法不存在！
+
+[ 2016-04-18T22:16:51+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:18+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:19+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:19+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:19+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:20+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:20+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:20+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:20+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:21+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:21+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:41+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:42+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:42+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:49+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T22:17:58+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/HomePage.html
+ERR: 无法加载控制器:Backstage
+
+[ 2016-04-18T23:11:30+08:00 ] ::1 /newPersonal/Admin.php/Admin/Index/index.html
+ERR: 无法加载控制器:Index
+
+[ 2016-04-18T23:11:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Index/index.html
+ERR: 无法加载控制器:Index
+
+[ 2016-04-18T23:12:13+08:00 ] ::1 /newPersonal/Admin.php/Admin/Index/index.html
+ERR: 无法加载控制器:Index
+
+[ 2016-04-18T23:12:14+08:00 ] ::1 /newPersonal/Admin.php/Admin/Index/index.html
+ERR: 无法加载控制器:Index
+
+[ 2016-04-18T23:12:17+08:00 ] ::1 /newPersonal/Admin.php/Admin/Index/index.html
+ERR: 无法加载控制器:Index
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style-responsive.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/font-awesome.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/bootstrap.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style-metro.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/bootstrap-responsive.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/default.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/uniform.default.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jquery.gritter.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/daterangepicker.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/fullcalendar.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jqvmap.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jquery.easy-pie-chart.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery-1.10.1.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery-migrate-1.2.1.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery-ui-1.10.1.custom.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/bootstrap.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.slimscroll.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.blockui.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.cookie.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.uniform.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.russia.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.world.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.europe.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.germany.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.usa.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.vmap.sampledata.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.flot.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.flot.resize.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.pulsate.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/date.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/daterangepicker.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.gritter.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/fullcalendar.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.easy-pie-chart.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/jquery.sparkline.min.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/app.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:16:00+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/js/index.js
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/font-awesome.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style-metro.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style-responsive.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/bootstrap.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/bootstrap-responsive.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/default.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/uniform.default.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jquery.gritter.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/daterangepicker.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/fullcalendar.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jqvmap.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:18:26+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jquery.easy-pie-chart.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style-metro.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/bootstrap.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/font-awesome.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/bootstrap-responsive.min.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/style-responsive.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/default.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/uniform.default.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jquery.gritter.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/daterangepicker.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/fullcalendar.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jqvmap.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:19:52+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/media/css/jquery.easy-pie-chart.css
+ERR: 非法操作:media
+
+[ 2016-04-18T23:21:32+08:00 ] ::1 /newPersonal/Admin.php/Admin/Backstage/layout_horizontal_sidebar_menu.html
+ERR: 非法操作:layout_horizontal_sidebar_menu
+
