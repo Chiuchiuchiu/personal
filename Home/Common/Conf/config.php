@@ -17,4 +17,5 @@ return array(
     'DEFAULT_MODULES' => 'Home',
     'URL_CASE_INSENSITIVE' =>true,
     'DB_PARAMS'    =>    array(\PDO::ATTR_CASE => \PDO::CASE_NATURAL),
+    'LOAD_EXT_CONFIG' => 'code',
 );

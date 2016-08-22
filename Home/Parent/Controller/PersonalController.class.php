@@ -35,4 +35,8 @@ class PersonalController extends Controller{
         $this->assign('user_id',$this->user_id);
         $this->assign('name', session('name'));
     }
+
+    protected function ajaxResponse($code, $message){
+        $this->ajaxReturn(['code' => $code, 'msg' => $message]);
+    }
 } 
