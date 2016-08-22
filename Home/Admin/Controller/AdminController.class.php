@@ -2,7 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 class AdminController extends Controller {
-    protected $trueTableName = 'tbAdmin';
+//    protected $trueTableName = 'tbAdmin';
 
     //空操作
     public function _empty()
@@ -23,7 +23,7 @@ class AdminController extends Controller {
             $user = D('Admin')->where(['fdName' => I('post.userName')])->find();
 //            var_dump(md5(md5(I('post.password'))), $user);exit;
             if(!$user){
-                $this->message('没有改用户');
+                $this->message('没有该用户');
                 return;
             }
             if(md5(md5(I('post.password'))) != $user['fdPassword']){
