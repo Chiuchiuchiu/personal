@@ -113,143 +113,143 @@
     this.setSize(width, height);
   };
 
-  VectorCanvas.prototype = {
-    svgns: "http://www.w3.org/2000/svg",
-    mode: 'svg',
-    width: 0,
-    height: 0,
-    canvas: null,
-
-    setSize: function (width, height) {
-      if (this.mode == 'svg') {
-        this.canvas.setAttribute('width', width);
-        this.canvas.setAttribute('height', height);
-      } else {
-        this.canvas.style.width = width + "px";
-        this.canvas.style.height = height + "px";
-        this.canvas.coordsize = width + ' ' + height;
-        this.canvas.coordorigin = "0 0";
-        if (this.rootGroup) {
-          var pathes = this.rootGroup.getElementsByTagName('shape');
-          for (var i = 0, l = pathes.length; i < l; i++) {
-            pathes[i].coordsize = width + ' ' + height;
-            pathes[i].style.width = width + 'px';
-            pathes[i].style.height = height + 'px';
-          }
-          this.rootGroup.coordsize = width + ' ' + height;
-          this.rootGroup.style.width = width + 'px';
-          this.rootGroup.style.height = height + 'px';
-        }
-      }
-      this.width = width;
-      this.height = height;
-    },
-
-    createPath: function (config) {
-      var node;
-      if (this.mode == 'svg') {
-        node = this.createSvgNode('path');
-        node.setAttribute('d', config.path);
-
-        if (this.params.borderColor !== null) {
-          node.setAttribute('stroke', this.params.borderColor);
-        }
-        if (this.params.borderWidth > 0) {
-          node.setAttribute('stroke-width', this.params.borderWidth);
-          node.setAttribute('stroke-linecap', 'round');
-          node.setAttribute('stroke-linejoin', 'round');
-        }
-        if (this.params.borderOpacity > 0) {
-          node.setAttribute('stroke-opacity', this.params.borderOpacity);
-        }
-
-        node.setFill = function (color) {
-          this.setAttribute("fill", color);
-          if (this.getAttribute("original") === null) {
-            this.setAttribute("original", color);
-          }
-        };
-
-        node.getFill = function (color) {
-          return this.getAttribute("fill");
-        };
-
-        node.getOriginalFill = function () {
-          return this.getAttribute("original");
-        };
-
-        node.setOpacity = function (opacity) {
-          this.setAttribute('fill-opacity', opacity);
-        };
-      } else {
-        node = this.createVmlNode('shape');
-        node.coordorigin = "0 0";
-        node.coordsize = this.width + ' ' + this.height;
-        node.style.width = this.width + 'px';
-        node.style.height = this.height + 'px';
-        node.fillcolor = WorldMap.defaultFillColor;
-        node.stroked = false;
-        node.path = VectorCanvas.pathSvgToVml(config.path);
-
-        var scale = this.createVmlNode('skew');
-        scale.on = true;
-        scale.matrix = '0.01,0,0,0.01,0,0';
-        scale.offset = '0,0';
-
-        node.appendChild(scale);
-
-        var fill = this.createVmlNode('fill');
-        node.appendChild(fill);
-
-        node.setFill = function (color) {
-          this.getElementsByTagName('fill')[0].color = color;
-          if (this.getAttribute("original") === null) {
-            this.setAttribute("original", color);
-          }
-        };
-
-        node.getFill = function (color) {
-          return this.getElementsByTagName('fill')[0].color;
-        };
-        node.getOriginalFill = function () {
-          return this.getAttribute("original");
-        };
-        node.setOpacity = function (opacity) {
-          this.getElementsByTagName('fill')[0].opacity = parseInt(opacity * 100, 10) + '%';
-        };
-      }
-      return node;
-    },
-
-    createGroup: function (isRoot) {
-      var node;
-      if (this.mode == 'svg') {
-        node = this.createSvgNode('g');
-      } else {
-        node = this.createVmlNode('group');
-        node.style.width = this.width + 'px';
-        node.style.height = this.height + 'px';
-        node.style.left = '0px';
-        node.style.top = '0px';
-        node.coordorigin = "0 0";
-        node.coordsize = this.width + ' ' + this.height;
-      }
-
-      if (isRoot) {
-        this.rootGroup = node;
-      }
-      return node;
-    },
-
-    applyTransformParams: function (scale, transX, transY) {
-      if (this.mode == 'svg') {
-        this.rootGroup.setAttribute('transform', 'scale(' + scale + ') translate(' + transX + ', ' + transY + ')');
-      } else {
-        this.rootGroup.coordorigin = (this.width - transX) + ',' + (this.height - transY);
-        this.rootGroup.coordsize = this.width / scale + ',' + this.height / scale;
-      }
-    }
-  };
+  //VectorCanvas.prototype = {
+  //  svgns: "http://www.w3.org/2000/svg",
+  //  mode: 'svg',
+  //  width: 0,
+  //  height: 0,
+  //  canvas: null,
+  //
+  //  setSize: function (width, height) {
+  //    if (this.mode == 'svg') {
+  //      this.canvas.setAttribute('width', width);
+  //      this.canvas.setAttribute('height', height);
+  //    } else {
+  //      this.canvas.style.width = width + "px";
+  //      this.canvas.style.height = height + "px";
+  //      this.canvas.coordsize = width + ' ' + height;
+  //      this.canvas.coordorigin = "0 0";
+  //      if (this.rootGroup) {
+  //        var pathes = this.rootGroup.getElementsByTagName('shape');
+  //        for (var i = 0, l = pathes.length; i < l; i++) {
+  //          pathes[i].coordsize = width + ' ' + height;
+  //          pathes[i].style.width = width + 'px';
+  //          pathes[i].style.height = height + 'px';
+  //        }
+  //        this.rootGroup.coordsize = width + ' ' + height;
+  //        this.rootGroup.style.width = width + 'px';
+  //        this.rootGroup.style.height = height + 'px';
+  //      }
+  //    }
+  //    this.width = width;
+  //    this.height = height;
+  //  },
+  //
+  //  createPath: function (config) {
+  //    var node;
+  //    if (this.mode == 'svg') {
+  //      node = this.createSvgNode('path');
+  //      node.setAttribute('d', config.path);
+  //
+  //      if (this.params.borderColor !== null) {
+  //        node.setAttribute('stroke', this.params.borderColor);
+  //      }
+  //      if (this.params.borderWidth > 0) {
+  //        node.setAttribute('stroke-width', this.params.borderWidth);
+  //        node.setAttribute('stroke-linecap', 'round');
+  //        node.setAttribute('stroke-linejoin', 'round');
+  //      }
+  //      if (this.params.borderOpacity > 0) {
+  //        node.setAttribute('stroke-opacity', this.params.borderOpacity);
+  //      }
+  //
+  //      node.setFill = function (color) {
+  //        this.setAttribute("fill", color);
+  //        if (this.getAttribute("original") === null) {
+  //          this.setAttribute("original", color);
+  //        }
+  //      };
+  //
+  //      node.getFill = function (color) {
+  //        return this.getAttribute("fill");
+  //      };
+  //
+  //      node.getOriginalFill = function () {
+  //        return this.getAttribute("original");
+  //      };
+  //
+  //      node.setOpacity = function (opacity) {
+  //        this.setAttribute('fill-opacity', opacity);
+  //      };
+  //    } else {
+  //      node = this.createVmlNode('shape');
+  //      node.coordorigin = "0 0";
+  //      node.coordsize = this.width + ' ' + this.height;
+  //      node.style.width = this.width + 'px';
+  //      node.style.height = this.height + 'px';
+  //      node.fillcolor = WorldMap.defaultFillColor;
+  //      node.stroked = false;
+  //      node.path = VectorCanvas.pathSvgToVml(config.path);
+  //
+  //      var scale = this.createVmlNode('skew');
+  //      scale.on = true;
+  //      scale.matrix = '0.01,0,0,0.01,0,0';
+  //      scale.offset = '0,0';
+  //
+  //      node.appendChild(scale);
+  //
+  //      var fill = this.createVmlNode('fill');
+  //      node.appendChild(fill);
+  //
+  //      node.setFill = function (color) {
+  //        this.getElementsByTagName('fill')[0].color = color;
+  //        if (this.getAttribute("original") === null) {
+  //          this.setAttribute("original", color);
+  //        }
+  //      };
+  //
+  //      node.getFill = function (color) {
+  //        return this.getElementsByTagName('fill')[0].color;
+  //      };
+  //      node.getOriginalFill = function () {
+  //        return this.getAttribute("original");
+  //      };
+  //      node.setOpacity = function (opacity) {
+  //        this.getElementsByTagName('fill')[0].opacity = parseInt(opacity * 100, 10) + '%';
+  //      };
+  //    }
+  //    return node;
+  //  },
+  //
+  //  createGroup: function (isRoot) {
+  //    var node;
+  //    if (this.mode == 'svg') {
+  //      node = this.createSvgNode('g');
+  //    } else {
+  //      node = this.createVmlNode('group');
+  //      node.style.width = this.width + 'px';
+  //      node.style.height = this.height + 'px';
+  //      node.style.left = '0px';
+  //      node.style.top = '0px';
+  //      node.coordorigin = "0 0";
+  //      node.coordsize = this.width + ' ' + this.height;
+  //    }
+  //
+  //    if (isRoot) {
+  //      this.rootGroup = node;
+  //    }
+  //    return node;
+  //  },
+  //
+  //  applyTransformParams: function (scale, transX, transY) {
+  //    if (this.mode == 'svg') {
+  //      this.rootGroup.setAttribute('transform', 'scale(' + scale + ') translate(' + transX + ', ' + transY + ')');
+  //    } else {
+  //      this.rootGroup.coordorigin = (this.width - transX) + ',' + (this.height - transY);
+  //      this.rootGroup.coordsize = this.width / scale + ',' + this.height / scale;
+  //    }
+  //  }
+  //};
 
   VectorCanvas.pathSvgToVml = function (path) {
     var result = '';

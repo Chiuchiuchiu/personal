@@ -1,9 +1,9 @@
 <?php
 namespace Admin\Controller;
 
-use Parent\Controller\PersonalController;
+use Parent\Controller\BaseController;
 use Think\Controller;
-class AdminController extends PersonalController {
+class AdminController extends BaseController {
 //    protected $trueTableName = 'tbAdmin';
 
 

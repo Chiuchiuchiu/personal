@@ -517,7 +517,7 @@ ul.page-sidebar-menu > li.active > a .selected {
   display: block;
   width: 8px;
   height: 25px;
-  background-image: url("../image/sidebar-menu-arrow.png");
+  background-image: url("../../images/Admin/sidebar-menu-arrow.png");
   float: right;
   position: absolute;
   right:0px;

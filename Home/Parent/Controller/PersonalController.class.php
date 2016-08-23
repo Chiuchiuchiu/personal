@@ -8,10 +8,9 @@
 
 namespace Parent\Controller;
 
-
 use Think\Controller;
 
-class PersonalController extends Controller{
+class PersonalController extends BaseController{
 
     protected $user_id = null;
     protected $type_id = null;
@@ -22,7 +21,7 @@ class PersonalController extends Controller{
     {
         $id = session('id');
         if (empty($id)) {
-            $this->error('未登录', U('Admin/Admin/index'));
+            $this->error('未登录', U('Home/Index/Index'));
             return;
         }
         $this->user_id = session('id');
@@ -34,9 +33,5 @@ class PersonalController extends Controller{
         $this->assign('type_id', $this->type_id);
         $this->assign('user_id',$this->user_id);
         $this->assign('name', session('name'));
-    }
-
-    protected function ajaxResponse($code, $message){
-        $this->ajaxReturn(['code' => $code, 'msg' => $message]);
     }
 } 
