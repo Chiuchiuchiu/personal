@@ -1,0 +1,152 @@
+<div class="container-fluid">
+
+<!-- BEGIN PAGE HEADER-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+        <h3 class="page-title">
+
+            访问IP<small></small>
+
+        </h3>
+
+        <ul class="breadcrumb">
+
+            <!--<li>-->
+
+                <!--<i class="icon-home"></i>-->
+
+                <!--<a href="">Home</a>-->
+
+                <!--<i class="icon-angle-right"></i>-->
+
+            <!--</li>-->
+
+            <!--<li>-->
+
+                <!--<a href="#">Data Tables</a>-->
+
+                <!--<i class="icon-angle-right"></i>-->
+
+            <!--</li>-->
+
+            <!--<li><a href="#">Basic Tables</a></li>-->
+
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+
+    </div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN SAMPLE TABLE PORTLET-->
+
+        <div class="portlet box green">
+
+            <div class="portlet-title">
+
+                <div class="caption">列表</div>
+
+                <div class="tools"></div>
+
+            </div>
+
+            <div class="portlet-body">
+
+                <table class="table table-hover">
+
+                    <thead>
+
+                    <tr>
+
+                        <th>序号</th>
+
+                        <th>IP</th>
+
+                        <th>访问时间</th>
+
+                        <th>操作</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <volist id="vo" name="list" key="k">
+
+                            <tr>
+
+                                <td>{$k}</td>
+
+                                <td>{$vo.fdIP}</td>
+
+                                <td>{$vo.fdCreate}</td>
+
+                                <td>
+
+                                    <a href="{:U('Backstage/detail', ['id' => $vo['id']])}" class="btn blue mini">详情</a>
+
+                                    <a href="{:U('Backstage/del', ['id' => $vo['id']])}" class="btn red mini">删除</a>
+
+                                </td>
+
+                            </tr>
+
+                        </volist>
+
+                    </tbody>
+
+                </table>
+
+                <div class="pagination pagination-small">
+
+                    <ul>
+
+                        <li><a href="#">«</a></li>
+
+                        <li><a href="#">1</a></li>
+
+                        <li><a href="#">2</a></li>
+
+                        <li><a href="#">3</a></li>
+
+                        <li><a href="#">4</a></li>
+
+                        <li><a href="#">»</a></li>
+
+                    </ul>
+
+                </div>
+                {$page}
+
+            </div>
+
+
+        </div>
+
+        <!-- END SAMPLE TABLE PORTLET-->
+
+    </div>
+
+
+    <!-- END PAGE CONTENT-->
+
+</div>
+
+<!-- END PAGE CONTAINER-->
+
+</div>
