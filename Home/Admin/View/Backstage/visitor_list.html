@@ -86,11 +86,11 @@
 
                     <tbody>
 
-                        <volist id="vo" name="list" key="k">
+                        <volist id="vo" name="list">
 
                             <tr>
 
-                                <td>{$k}</td>
+                                <td>{$vo.id}</td>
 
                                 <td>{$vo.fdIP}</td>
 
@@ -100,7 +100,7 @@
 
                                     <a href="{:U('Backstage/detail', ['id' => $vo['id']])}" class="btn blue mini">详情</a>
 
-                                    <a href="{:U('Backstage/del', ['id' => $vo['id']])}" class="btn red mini">删除</a>
+                                    <a href="javascript:;" onclick="del('{$vo.id}')" class="btn red mini">删除</a>
 
                                 </td>
 
@@ -112,26 +112,16 @@
 
                 </table>
 
-                <div class="pagination pagination-small">
+                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
 
-                    <ul>
+                    <ul class="pagination">
 
-                        <li><a href="#">«</a></li>
-
-                        <li><a href="#">1</a></li>
-
-                        <li><a href="#">2</a></li>
-
-                        <li><a href="#">3</a></li>
-
-                        <li><a href="#">4</a></li>
-
-                        <li><a href="#">»</a></li>
+                        <div class="yahoo2">{$page}<div/>
 
                     </ul>
 
                 </div>
-                {$page}
+
 
             </div>
 
@@ -150,3 +140,24 @@
 <!-- END PAGE CONTAINER-->
 
 </div>
+<script type="text/javascript">
+    function del(id){
+        console.log(id);
+        layer.msg('你确定要删除该IP？', {
+            time: 0 //不自动关闭
+            ,btn: ['係啊', '等阵']
+            ,yes: function(index){
+                layer.close(index); //先关闭原来的框
+                $.get("{:U('Backstage/del')}" + "?id=" + id, function (re){
+                    layer.open({
+                        content: re.msg,
+                        time: 2000,
+                        end: function(){
+                            window.location.reload();
+                        }
+                    })
+                })
+            }
+        });
+    }
+</script>

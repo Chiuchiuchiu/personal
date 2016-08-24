@@ -39,6 +39,8 @@ class BackstageController extends PersonalController
 
     public function del(){
         $id = I('get.id', 0, 'int');
-        var_dump($id, __CLASS__);
+        $id == 0 && $this->ajaxResponse(50000, C('CODE_AND_MSG')['50000']);
+        D('Visitors')->where(['id' => $id])->delete() ? $this->ajaxResponse(20000, C('CODE_AND_MSG')['20000']) : $this->ajaxResponse(40004, C('CODE_AND_MSG')['40004']);
+
     }
 } 

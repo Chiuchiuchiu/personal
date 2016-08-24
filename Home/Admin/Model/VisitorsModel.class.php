@@ -13,6 +13,6 @@ use Think\Model\RelationModel;
 class VisitorsModel extends RelationModel{
 
     public function get_visitor_list($first, $rows){
-        return M('visitors')->limit($first, $rows)->order('fdCreate')->select();
+        return M('visitors')->limit($first, $rows)->order('fdCreate DESC')->select();
     }
 }
