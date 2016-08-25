@@ -34,7 +34,11 @@ class BackstageController extends PersonalController
 
     public function detail(){
         $id = I('get.id', 0, 'int');
-        var_dump($id, __CLASS__);
+        $info = D('Visitors')->IP_info($id);
+//        var_dump($info);
+
+        $this->assign('info', $info);
+        $this->display();
     }
 
     public function del(){

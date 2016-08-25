@@ -15,4 +15,8 @@ class VisitorsModel extends RelationModel{
     public function get_visitor_list($first, $rows){
         return M('visitors')->limit($first, $rows)->order('fdCreate DESC')->select();
     }
+
+    public function IP_info($id){
+        return M('Visitors')->where(['id' => $id])->find();
+    }
 }
