@@ -6,7 +6,9 @@
 
 <h3> IP 详细信息 </h3>
 
-<div class="row-fluid">
+    <button type="button" class="btn red" onclick="history.back();">返回 <i class="m-icon-swapright m-icon-white"></i></button>
+
+    <div class="row-fluid">
 
     <div class="span6 ">
 
@@ -104,17 +106,6 @@
 
 </div>
 
-
-
-
-<div class="form-actions">
-
-    <!--<button type="submit" class="btn blue"><i class="icon-pencil"></i> Edit</button>-->
-
-    <button type="button" class="btn red" onclick="history.back();">Back <i class="m-icon-swapright m-icon-white"></i></button>
-
-</div>
-
 </div>
 
 <!-- END FORM-->
@@ -126,8 +117,23 @@
     var lng = "{$info.fdLng}";
     var lat = "{$info.fdLat}";
 
+    // 百度地图API功能
     var map = new BMap.Map("allmap");
     var point = new BMap.Point(lng, lat);
+    map.centerAndZoom(point,12);
+
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);
+        }
+        else {
+            alert('failed'+this.getStatus());
+        }
+    },{enableHighAccuracy: true});
+
 
     map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
     map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
