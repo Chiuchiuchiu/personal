@@ -32,6 +32,5 @@
 *.dSYM/
 *.su
 
-
 .idea/
 Home/Runtime/
