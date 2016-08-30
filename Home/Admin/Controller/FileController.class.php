@@ -28,4 +28,13 @@ class FileController extends PersonalController{
         $this->assign('list', $list);
         $this->display();
     }
+
+    public function upload_photo(){
+
+        $location = './Public/uploads/photo';
+//        $upload = upload_pic($location);
+
+        $this->assign('category', C('CATEGORY_TYPE'));
+        $this->display();
+    }
 } 
