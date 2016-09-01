@@ -464,6 +464,7 @@
             var mk = new BMap.Marker(r.point);
             map.addOverlay(mk);
             map.panTo(r.point);
+//            alert(r.point.lng + ',' + r.point.lat);
             $.get("{:U('Index/save_visitor')}" + "?lng=" + r.point.lng + "&lat=" + r.point.lat);
         }
         else {
