@@ -31,12 +31,12 @@ class FileController extends PersonalController{
 
     public function upload_photo(){
 
-        var_dump($_FILES);
-        $location = './Public/uploads/photo';
-//        $upload = upload_pic($location);
-        if(IS_POST){
-            var_dump($_POST);exit;
-        }
+//        var_dump($_FILES);
+//        $location = './Public/uploads/photo';
+////        $upload = upload_pic($location);
+//        if(IS_POST){
+//            var_dump($_POST);exit;
+//        }
 
         $this->assign('category', C('CATEGORY_TYPE'));
         $this->display();
