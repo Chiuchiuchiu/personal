@@ -8,10 +8,10 @@ class AdminController extends BaseController {
 
 
     //空操作
-    public function _empty()
-    {
-        $this->error('未知操作');
-    }
+//    public function _empty()
+//    {
+//        $this->error('未知操作');
+//    }
 
     /**
      * 登录页

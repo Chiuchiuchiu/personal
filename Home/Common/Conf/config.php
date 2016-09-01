@@ -18,4 +18,6 @@ return array(
     'URL_CASE_INSENSITIVE' =>true,
     'DB_PARAMS'    =>    array(\PDO::ATTR_CASE => \PDO::CASE_NATURAL),
     'LOAD_EXT_CONFIG' => 'code',
+
+    'CATEGORY_TYPE' => [1 => '相册', '文章插图', '素材']
 );

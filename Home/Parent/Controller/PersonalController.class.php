@@ -4,6 +4,7 @@
  * User: zhaowenxi
  * Date: 2016/4/18
  * Time: 22:46
+ * 用于后台控制层继承
  */
 
 namespace Parent\Controller;

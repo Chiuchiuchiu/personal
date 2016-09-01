@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="tools">
-                        <a class="btn green" style=""> 上传图片 </a>
+                        <a class="btn green" href="{:U('File/upload_photo')}" style=""> 上传图片 </a>
                     </div>
 
                 </div>
@@ -151,9 +151,10 @@
 
 </div>
 <script type="text/javascript">
+
     function del(id){
         console.log(id);
-        layer.msg('你确定要删除该IP？', {
+        layer.msg('你确定要删除该图片？', {
             time: 0 //不自动关闭
             ,btn: ['係啊', '等阵']
             ,yes: function(index){

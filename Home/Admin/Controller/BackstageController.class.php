@@ -16,6 +16,7 @@ use Think\Page;
 class BackstageController extends PersonalController
 {
     public function visitor_list(){
+//        var_dump($_SESSION);
         $model = D('Visitors');
         $count = $model->count();
         $page = new Page($count, 10);

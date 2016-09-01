@@ -7,17 +7,20 @@
  * 公共方法
  */
 
-function upload_pic($location){
+/**
+ * @param $rootPath 根目录
+ * @param $savePath 保存位置
+ * @return array|bool|string
+ * 上传文件
+ */
+function upload_pic($rootPath, $savePath){
 
     $upload = new \Think\Upload();// 实例化上传类
-    $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-    $upload->savePath  =      $location; // 设置附件上传目录    // 上传文件
+    $upload->exts     = array('jpg', 'gif', 'png', 'jpeg', 'pdf', 'doc', 'docx', 'xls', 'xlsx');// 设置附件上传类型
+    $upload->rootPath = $rootPath; // 设置附件上传根目录
+    $upload->savePath = $savePath; // 设置附件上传目录
     $info   =   $upload->upload();
-    if(!$info) return $upload->getError(); // 上传错误提示错误信息
 
-//    //保存图片到数据库
-//    $data[$field] = $info[0]['savepath'];
-//    $data['fdCreate'] = date('Y-m-d H:i:s');
-//    $info['pic_id'] = M($model)->add($data);
-    return $info;
+    return ($info ? $info : $upload->getError());
+
 }
