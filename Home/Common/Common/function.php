@@ -19,6 +19,7 @@ function upload_pic($rootPath, $savePath){
     $upload->exts     = array('jpg', 'gif', 'png', 'jpeg', 'pdf', 'doc', 'docx', 'xls', 'xlsx');// 设置附件上传类型
     $upload->rootPath = $rootPath; // 设置附件上传根目录
     $upload->savePath = $savePath; // 设置附件上传目录
+    $upload->autoSub  = false;  // 不要在上传目录下再生成一个日期文件夹
     $info   =   $upload->upload();
 
     return ($info ? $info : $upload->getError());

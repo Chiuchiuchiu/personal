@@ -13,6 +13,8 @@ use Parent\Controller\PersonalController;
 use Think\Page;
 
 class FileController extends PersonalController{
+    public $root_path = './Public/uploads/';
+
     public function photo_list(){
         $model = D('Photo');
         $count = $model->count();
@@ -23,7 +25,10 @@ class FileController extends PersonalController{
         $show = $page->show();
 
         $list = $model->get_list($page->firstRow, $page->listRows);
-
+        foreach($list as &$v){
+            $v['cate'] = C('CATEGORY_TYPE')[$v['fdCategoryId']];
+        }
+var_dump($list);
         $this->assign('page', $show);
         $this->assign('list', $list);
         $this->display();
@@ -31,14 +36,43 @@ class FileController extends PersonalController{
 
     public function upload_photo(){
 
-//        var_dump($_FILES);
-//        $location = './Public/uploads/photo';
-////        $upload = upload_pic($location);
-//        if(IS_POST){
-//            var_dump($_POST);exit;
-//        }
+        if(IS_POST){
+            $post = I('post.');
+            switch($post['cate']){
+                case 1: //相册
+                    $save_path = 'album/';
+                    break;
+                case 2: //文章插图
+                    $save_path = 'illustration/';
+                    break;
+                case 3: //素材
+                    $save_path = 'material/';
+                    break;
+                default :
+                    $save_path = 'material/';
+                    break;
+            }
+            $data['fdCategoryId'] = $post['cate'];
+
+            $upload = upload_pic($this->root_path, $save_path);
+
+            !is_array($upload) && $this->error($upload);
+            $add_data = [];
+            foreach($upload as $key => $v){
+                $add_data[$key]['fdUrl'] = '/Public/' . $v['savepath'] . $v['savename'];
+                $add_data[$key]['fdName'] = $_FILES['file']['name'][$key];
+                $add_data[$key]['fdCategoryId'] = $post['cate'];
+                $add_data[$key]['fdCreate'] = date('Y-m-d H:i:s');
+            }
+
+            $add = D('Photo')->add_log($add_data);
+            $add == 0 && $this->error('上传失败');
+            $this->success('成功', U('File/photo_list'));
+            exit;
+        }
 
         $this->assign('category', C('CATEGORY_TYPE'));
         $this->display();
     }
+
 } 
