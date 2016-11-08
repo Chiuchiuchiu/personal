@@ -17,15 +17,27 @@ class AdminController extends BaseController {
      * 登录页
      */
     public function Index(){
+
         if(IS_POST){
+
             $post=I('post.');
             $model = D('Admin');
+
             if (empty($post['username']) || empty($post['password'])) {
                 $this->ajaxResponse(40001, C('CODE_AND_MSG')['40001']);
                 return;
             }
+
+//            if(empty($post['verify'])){
+//                $this->ajaxResponse(40001, C('CODE_AND_MSG')['40005']);
+//                return;
+//            }
+//            if(!$this->check_verify($post['verify'])){
+//                $this->ajaxResponse(40001, C('CODE_AND_MSG')['40006']);
+//                return;
+//            }
+
             $user = $model->where(['fdName' => $post['username']])->find();
-//            var_dump(md5(md5(I('post.password'))), $user);exit;
             if(!$user){
                 $this->ajaxResponse(40002, C('CODE_AND_MSG')['40002']);
                 return;
@@ -62,6 +74,23 @@ class AdminController extends BaseController {
     public function Logout(){
         session(null);
         $this->redirect('login');
+    }
+
+    function create_verify($length = 1){
+        //验证码
+        $Verify = new \Think\Verify();
+        $Verify->imageH = '40';
+        $Verify->imageW = '100';
+        $Verify->length = $length;
+        $Verify->fontSize = '20';
+        $Verify->useCurve = false;
+        $Verify->entry();
+    }
+
+    // 检测输入的验证码是否正确，$code为用户输入的验证码字符串
+    function check_verify($code, $id = ''){
+        $verify = new \Think\Verify();
+        return $verify->check($code, $id);
     }
 
 }

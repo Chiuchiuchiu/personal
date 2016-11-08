@@ -4,7 +4,7 @@ return array(
     //数据库连接
     'DB_TYPE' => 'mysql',
     'DB_HOST'   => 'localhost',
-    'DB_NAME'   => 'personal', // 数据库名
+    'DB_NAME'   => 'zwx', // 数据库名
     'DB_USER'   => 'root', // 用户名
     'DB_PWD'    => '', // 密码
 //    'DB_HOST'   => 'qdm219678487.my3w.com',
@@ -19,5 +19,11 @@ return array(
     'DB_PARAMS'    =>    array(\PDO::ATTR_CASE => \PDO::CASE_NATURAL),
     'LOAD_EXT_CONFIG' => 'code',
 
-    'CATEGORY_TYPE' => [1 => '相册', '文章插图', '素材']
+    'CATEGORY_TYPE' => [1 => '相册', '文章插图', '素材'],
+    'MAIL_CONFIG' => [
+        'SERVER' => 'smtp.126.com',
+        'SERVER_USERNAME' => 'chiuhey@126.com',
+        'SERVER_PWD' => 'zwx881003',
+        'SEND_FROM' => 'chiuhey@126.com',
+    ],
 );

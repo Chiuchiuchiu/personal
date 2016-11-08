@@ -12,7 +12,7 @@
 
     <meta charset="utf-8" />
 
-    <title>Metronic | Login Page</title>
+    <title>Chiu | Login Page</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -91,6 +91,16 @@
                     <input class="m-wrap placeholder-no-fix" name="password" type="password" placeholder="Password"/>
 
                 </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-icon left">
+                    <input class="m-wrap" name="verify" type="text" placeholder="Verify"/>
+                </div>
+                <br/>
+                <img class="verify_img" alt="验证码" src="{:U('Admin/Admin/create_verify')}">
             </div>
         </div>
 
@@ -176,11 +186,13 @@
     function login(){
         var username = $("input[name='username']").val();
         var password = $("input[name='password']").val();
-
+        var verify = $("input[name='verify']").val();
+        //刷新验证码
+        $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
         $.ajax({
             url:"{:U('Admin/Index')}",
             type:"post",
-            data:{username:username, password:password},
+            data:{username:username, password:password, verify:verify},
             dataType : "json",
             success : function(data) {
                 layer.msg(data.msg);

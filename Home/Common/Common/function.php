@@ -25,3 +25,24 @@ function upload_pic($rootPath, $savePath){
     return ($info ? $info : $upload->getError());
 
 }
+
+/**
+ * @param $server
+ * @param $server_user
+ * @param $server_pwd
+ * @param $from
+ * @param $send_to
+ * @param $title
+ * @param $content
+ * 发送邮件
+ */
+function send_email($server, $server_user, $server_pwd, $from, $send_to, $title, $content){
+    vendor("SendMail.mail");
+    $mail = new \MySendMail();
+    $mail->setServer($server, $server_user, $server_pwd); //到服务器的SSL连接
+    //如果不需要到服务器的SSL连接，这样设置服务器：$mail->setServer("smtp.126.com", "XXX@126.com", "XXX");
+    $mail->setFrom($from);
+    $mail->setReceiver($send_to);
+    $mail->setMail($title, $content);
+    $mail->sendMail();
+}

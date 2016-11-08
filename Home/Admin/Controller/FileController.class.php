@@ -28,7 +28,7 @@ class FileController extends PersonalController{
         foreach($list as &$v){
             $v['cate'] = C('CATEGORY_TYPE')[$v['fdCategoryId']];
         }
-var_dump($list);
+
         $this->assign('page', $show);
         $this->assign('list', $list);
         $this->display();
