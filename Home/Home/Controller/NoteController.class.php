@@ -4,14 +4,15 @@
  * User: zhaowenxi
  * Date: 2016/3/29
  * Time: 23:05
+ *
  */
 
 namespace Home\Controller;
 
 
-use Think\Controller;
+use Parent\Controller\BaseController;
 
-class NoteController extends Controller{
+class NoteController extends BaseController{
     public function NoteLog(){
         $this->display();
     }

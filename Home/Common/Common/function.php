@@ -46,3 +46,24 @@ function send_email($server, $server_user, $server_pwd, $from, $send_to, $title,
     $mail->setMail($title, $content);
     $mail->sendMail();
 }
+
+/**
+ * @param $type
+ * @param $str
+ * @return int
+ * 匹配正则
+ */
+function regex_check($type, $str){
+    $rgx_arr = [
+        'phone' => '/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/',
+        'number' => '/^[0-9]+$/',
+        'date' => '/^(\d{4})-(0?\d{1}|1[0-2])-(0?\d{1}|[12]\d{1}|3[01])$/',
+        'date_time' => '/^(\d{4})-(0?\d{1}|1[0-2])-(0?\d{1}|[12]\d{1}|3[01])\s(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/',
+        'email' => '/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/',
+        'postcode' => '/[1-9]\d{5}(?!\d)/',
+        'url' => '/\b(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))/',
+        'id_card' => '/(^\d{15}$)|(^\d{17}([0-9]|X|x)$)/',
+
+    ];
+    return preg_match($rgx_arr[$type], $str);
+}

@@ -40,17 +40,13 @@ class FileController extends PersonalController{
             $post = I('post.');
             switch($post['cate']){
                 case 1: //相册
-                    $save_path = 'album/';
-                    break;
+                    $save_path = 'album/';break;
                 case 2: //文章插图
-                    $save_path = 'illustration/';
-                    break;
+                    $save_path = 'illustration/';break;
                 case 3: //素材
-                    $save_path = 'material/';
-                    break;
+                    $save_path = 'material/';break;
                 default :
-                    $save_path = 'material/';
-                    break;
+                    $save_path = 'material/';break;
             }
             $data['fdCategoryId'] = $post['cate'];
 

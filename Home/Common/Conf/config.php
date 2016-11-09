@@ -22,7 +22,7 @@ return array(
     'CATEGORY_TYPE' => [1 => '相册', '文章插图', '素材'],
     'MAIL_CONFIG' => [
         'SERVER' => 'smtp.126.com',
-        'SERVER_USERNAME' => 'chiuhey@126.com',
+        'SERVER_USERNAME' => 'smtp.126.com',
         'SERVER_PWD' => 'zwx881003',
         'SEND_FROM' => 'chiuhey@126.com',
     ],
