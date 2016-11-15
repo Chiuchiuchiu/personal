@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form id="register">
+        昵称：
+        <input type="text" name="username"/><br/>
+        密码：
+        <input type="password" name="password"/><br/>
+        手机：
+        <input type="text" name="phone"/><br/>
+        邮箱：
+        <input type="text" name="mail"/>
+        <input type="button" id="btn" value="发送验证码" /><br/>
+        验证：
+        <input type="text" name="verify"/><br/>
+
+        <button type="submit">注册</button>
+    </form>
+</body>
+</html>
+<script src="__PUBLIC__/js/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var nick_name = $("input[name='username']");
+        var password = $("input[name='password']");
+        var email = $("input[name='mail']");
+        var verify = $("input[name='verify']");
+        var phone = $("input[name='phone']");
+
+        $('#btn').click(function () {
+            //发送验证码，先正则检验邮箱
+            var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            if(!reg.test(email.val())){
+                email.focus();
+                layer.msg('请输入正确的邮箱...');
+                return;
+            }
+
+            //开启loading
+            layer.load(2);
+            $.get("{:U('Home/SignUp/send_verify')}", {mail:email.val()}, function(re){
+                layer.closeAll('loading');  //关闭loading
+                if(re.code == 20000){
+                    layer.msg("验证码已发送到您的邮箱 >3< ");
+
+                    var count = 5;
+                    var countdown = setInterval(function(){
+                        $("#btn").attr("disabled", true);
+
+                        $("#btn").val(count + "秒后失效");
+                        if (count == 0) {
+                            $("#btn").val("发送验证码").removeAttr("disabled");
+                            clearInterval(countdown);
+                        }
+                        count--;
+                    }, 1000);
+                }else{
+                    layer.msg(re.msg);
+                    return false;
+                }
+            });
+        });
+
+        $("#register").submit(function(){
+            //提交注册
+            if(!nick_name.val()){
+                nick_name.focus();
+                layer.msg('昵称呢??');
+                return false;
+            }
+            if(!password.val()){
+                password.focus();
+                layer.msg('密码呢??');
+                return false;
+            }
+            if(!phone.val()){
+                phone.focus();
+                layer.msg('手机号呢??');
+                return false;
+            }
+            if(!email.val()){
+                email.focus();
+                layer.msg('邮箱呢??');
+                return false;
+            }
+            if(!verify.val()){
+                verify.focus();
+                layer.msg('验证码呢??');
+                return false;
+            }
+
+            $.ajax({
+                url: "{:U('Home/SignUp/register')}",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    nick_name:nick_name.val(),
+                    password:password.val(),
+                    email:email.val(),
+                    phone:phone.val(),
+                    verify:verify.val()
+                },
+                success:function(res){
+                    console.log(res);
+                    if(res.code == 20000){
+                        layer.msg(res.msg, {icon: 4});
+                    }else{
+                        layer.msg(res.msg, {icon: 5});
+                    }
+                },
+                error: function(){
+                    layer.msg('网络错误！', {icon: 5});
+                }
+            });
+            return false;
+        })
+    });
+</script>

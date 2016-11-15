@@ -43,8 +43,8 @@ function send_email($server, $server_user, $server_pwd, $from, $send_to, $title,
     //如果不需要到服务器的SSL连接，这样设置服务器：$mail->setServer("smtp.126.com", "XXX@126.com", "XXX");
     $mail->setFrom($from);
     $mail->setReceiver($send_to);
-    $mail->setMail($title, $content);
-    $mail->sendMail();
+    $mail->setMail('=?utf8?B?' . base64_encode($title) . '?=', $content);
+    return $mail->sendMail();
 }
 
 /**
@@ -67,3 +67,5 @@ function regex_check($type, $str){
     ];
     return preg_match($rgx_arr[$type], $str);
 }
+
+

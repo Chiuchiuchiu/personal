@@ -11,7 +11,14 @@ namespace Parent\Controller;
 use Think\Controller;
 
 class BaseController extends Controller{
-    protected function ajaxResponse($code, $message){
+
+    protected $config = '';
+    public function __construct(){
+        parent::__construct();
+        $this->config = C('CODE_AND_MSG');
+    }
+
+    protected function ajaxResponse($code = 20000, $message){
         $this->ajaxReturn(['code' => $code, 'msg' => $message]);
     }
-} 
+}
