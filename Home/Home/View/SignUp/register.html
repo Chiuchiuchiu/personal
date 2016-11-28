@@ -105,15 +105,17 @@
                     verify:verify.val()
                 },
                 success:function(res){
-                    console.log(res);
                     if(res.code == 20000){
-                        layer.msg(res.msg, {icon: 4});
+                        layer.msg(res.msg, {icon: 6, time: 3000}, function(){
+                            location.href="{:U('Home/Index/Index')}";
+                        });
+
                     }else{
                         layer.msg(res.msg, {icon: 5});
                     }
                 },
                 error: function(){
-                    layer.msg('网络错误！', {icon: 5});
+                    layer.msg('发生了一丁丁错误...', {icon: 5});
                 }
             });
             return false;

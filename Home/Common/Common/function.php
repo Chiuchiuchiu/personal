@@ -55,7 +55,7 @@ function send_email($server, $server_user, $server_pwd, $from, $send_to, $title,
  */
 function regex_check($type, $str){
     $rgx_arr = [
-        'phone' => '/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/',
+        'phone' => '/^(13|14|15|18|17)[0-9]{9}$/',
         'number' => '/^[0-9]+$/',
         'date' => '/^(\d{4})-(0?\d{1}|1[0-2])-(0?\d{1}|[12]\d{1}|3[01])$/',
         'date_time' => '/^(\d{4})-(0?\d{1}|1[0-2])-(0?\d{1}|[12]\d{1}|3[01])\s(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/',
@@ -66,6 +66,40 @@ function regex_check($type, $str){
 
     ];
     return preg_match($rgx_arr[$type], $str);
+}
+
+//缓存
+function get_user($id){
+    $key = 'user_' . $id;
+    $v = S($key);
+    if($v){
+        return $v;
+    }
+    $data = M('Users')->where(['id' => $id])->find();
+    S($key, $data, 3600);
+    return $data;
+}
+
+/**
+ * 预防SQL注入，转义非法字符
+ *
+ * @param unknown_type $str
+ * @return Ambigous <unknown, string>
+ */
+function setString($str)
+{
+    return get_magic_quotes_gpc() ? $str : addslashes($str);
+}
+
+/**
+ * 把转译的字符返回没有转义前的样子
+ *
+ * @param string $str
+ * @return string
+ */
+function unSetString($str)
+{
+    return stripslashes($str);
 }
 
 

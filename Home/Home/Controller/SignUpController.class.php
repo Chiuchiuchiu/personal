@@ -24,15 +24,18 @@ class SignUpController extends BaseController{
 
             $email = I('post.email', '', 'strip_tags,trim');
             $verify = I('post.verify', 0, 'intval');
-            $phone = I('post.phone', 0, 'intval');
+            $phone = I('post.phone', 0);
             $password = I('post.password', '', 'strip_tags,trim');
             $nickname = I('post.nick_name', '', 'strip_tags,trim');
 
             $nickname || $this->ajaxResponse(40009, $this->config[40009]);
             $password || $this->ajaxResponse(40010, $this->config[40010]);
-            $phone || $this->ajaxResponse(40011, $this->config[40011]);
+            $phone || $this->ajaxResponse(40013, $this->config[40013]);
             $email || $this->ajaxResponse(40012, $this->config[40012]);
             $verify || $this->ajaxResponse(40005, $this->config[40005]);
+
+            regex_check('phone', $phone) || $this->ajaxResponse(40013, $this->config[40013]);
+            regex_check('email', $email) || $this->ajaxResponse(40008, $this->config[40008]);
 
             $v_model = D('Verify');
             $u_model = D('Users');
@@ -106,7 +109,7 @@ class SignUpController extends BaseController{
             $mail_config['SEND_FROM'],
             $mail,
             '验证码',
-            '你的验证码是：' . $verity_str
+            '【zhaowenxi.com】感谢您的关注！验证码是：' . $verity_str . "。记住噢~5分钟后失效。"
         );
 
         //保存验证码，后续验证
