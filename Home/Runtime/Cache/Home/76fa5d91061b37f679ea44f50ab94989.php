@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Voltage &mdash; 100% Free Fully Responsive HTML5 Template </title>
+    <title>Chiu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
     <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -23,30 +23,37 @@
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="" />
 
+    <!--百度地图-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gS2xj2qnM3zx8mpBtMGWpRZR2by2iRSN"></script>-->
+    <!--百度地图-->
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="myico.ico">
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="/personal/Public/css/Home/animate.css">
+    <link rel="stylesheet" href="/Public/css/Home/animate.css">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="/personal/Public/css/Home/icomoon.css">
+    <link rel="stylesheet" href="/Public/css/Home/icomoon.css">
     <!-- Magnific Popup-->
-    <link rel="stylesheet" href="/personal/Public/css/Home/magnific-popup.css">
+    <link rel="stylesheet" href="/Public/css/Home/magnific-popup.css">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="/personal/Public/css/Home/owl.carousel.min.css">
-    <link rel="stylesheet" href="/personal/Public/css/Home/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/Public/css/Home/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Public/css/Home/owl.theme.default.min.css">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="/personal/Public/css/Home/bootstrap.css">
+    <link rel="stylesheet" href="/Public/css/Home/bootstrap.css">
 
     <!-- Cards -->
-    <link rel="stylesheet" href="/personal/Public/css/Home/cards.css">
+    <link rel="stylesheet" href="/Public/css/Home/cards.css">
 
     <!-- Modernizr JS -->
-    <script src="/personal/Public/js/Home/modernizr-2.6.2.min.js"></script>
+    <script src="/Public/js/Home/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="/personal/Public/js/Home/respond.min.js"></script>
+    <script src="/Public/js/Home/respond.min.js"></script>
     <![endif]-->
+    <script src="/Public/js/jquery-1.11.1.min.js"></script>
 
 </head>
 
@@ -62,22 +69,24 @@
         </div>
         <div class="col-lg-6 col-md-5 col-sm-5 text-center fh5co-link-wrap">
             <ul data-offcanvass="yes">
-                <li><a href="<?php echo U('Mine/Mine');?>">Mine</a></li>
-                <li><a href="<?php echo U('Note/NoteLog');?>">Skill Note</a></li>
+                <li><a href="<?php echo U('Mine/mine');?>">Mine</a></li>
                 <li><a href="#">Photos</a></li>
+                <li><a href="<?php echo U('Message/add');?>">Message</a></li>
                 <li><a href="#contacts_me" name="contacts_me">Contacts me</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-4 text-right fh5co-link-wrap">
             <ul class="fh5co-special" data-offcanvass="yes">
-                <li><a href="<?php echo U('Admin/Admin/index');?>" class="call-to-action">Login</a></li>
+                <?php if(1 == 1): ?><li><a href="<?php echo U('Admin/Admin/index');?>" class="call-to-action">Login</a></li>
+                <?php else: ?>
+                    <li>欢迎回来 xxx  <span style="cursor: pointer;font-size: 12px" class="logout"><退出></span></li><?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
 
 
-<div class="fh5co-cover fh5co-cover-style-2 js-full-height" data-stellar-background-ratio="0.5" data-next="yes"  style="background-image: url(/personal/Public/images/Home/header_bg.jpg);">
+<div class="fh5co-cover fh5co-cover-style-2 js-full-height" data-stellar-background-ratio="0.5" data-next="yes"  style="background-image: url(/Public/images/Home/header_bg.jpg);">
                 <span class="scroll-btn wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.7s">
                     <a href="#">
                         <span class="mouse"><span></span></span>
@@ -89,9 +98,12 @@
             <div class="row">
                 <div class="col-md-push-6 col-md-6 full-height js-full-height">
                     <div class="fh5co-cover-intro">
-                        <h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Create Something Funny</h1>
-                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">我 :</h2>
-                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一名逗比的程序猿</h2>
+                        <h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                            Create Something Funny
+                            <!--做一名逗比的程序员-->
+                        </h1>
+                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s"></h2>
+                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome~</h2>
                         <!--<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">-->
                         <!--<a href="#" class="btn btn-primary btn-outline btn-lg">click</a>-->
                         <!--</p>-->
@@ -116,7 +128,7 @@
     </div>
     <div class="fh5co-projects">
         <ul>
-            <li class="wow fadeInUp" style="background-image: url(/personal/Public/images/Home/xixun2_0.png);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
+            <li class="wow fadeInUp" style="background-image: url(/Public/images/Home/xixun3.png);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
                 <a href="http://zt13.xixunyun.com/" target="_blank">
                     <div class="fh5co-overlay"></div>
                     <div class="container">
@@ -139,7 +151,7 @@
                     </div>
                 </a>
             </li>
-            <li class="wow fadeInUp" style="background-image: url(/personal/Public/images/Home/xixun1.png);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
+            <li class="wow fadeInUp" style="background-image: url(/Public/images/Home/xixun1.png);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
                 <a href="http://xixunyun.com/" target="_blank">
                     <div class="fh5co-overlay"></div>
                     <div class="container">
@@ -162,7 +174,7 @@
                     </div>
                 </a>
             </li>
-            <li class="wow fadeInUp" style="background-image: url(/personal/Public/images/Home/full_4.jpg);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
+            <li class="wow fadeInUp" style="background-image: url(/Public/images/Home/full_4.jpg);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
                 <a>
                     <div class="fh5co-overlay"></div>
                     <div class="container">
@@ -184,317 +196,350 @@
         </ul>
     </div>
 </div>
-
-<!--<div class="fh5co-blog-style-1">-->
-    <!--<div class="container">-->
-        <!--<div class="row p-b">-->
-            <!--<div class="col-md-6 col-md-offset-3 text-center">-->
-                <!--<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Recent From Blog</h2>-->
-                <!--<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row p-b">-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">-->
-                <!--<div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">-->
-                    <!--<div class="fh5co-post-image">-->
-                        <!--<div class="fh5co-overlay"></div>-->
-                        <!--<div class="fh5co-category"><a href="#">Tutorial</a></div>-->
-                        <!--<img src="/personal/Public/images/Home/img_same_dimension_2.jpg" alt="Image" class="img-responsive">-->
-                    <!--</div>-->
-                    <!--<div class="fh5co-post-text">-->
-                        <!--<h3><a href="#">How to Create Cards</a></h3>-->
-                        <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>-->
-                    <!--</div>-->
-                    <!--<div class="fh5co-post-meta">-->
-                        <!--<a href="#"><i class="icon-chat"></i> 33</a>-->
-                        <!--<a href="#"><i class="icon-clock2"></i> 2 hours ago</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">-->
-                <!--<div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">-->
-                    <!--<div class="fh5co-post-image">-->
-                        <!--<div class="fh5co-overlay"></div>-->
-                        <!--<div class="fh5co-category"><a href="#">Health</a></div>-->
-                        <!--<img src="/personal/Public/images/Home/img_same_dimension_3.jpg" alt="Image" class="img-responsive">-->
-                    <!--</div>-->
-                    <!--<div class="fh5co-post-text">-->
-                        <!--<h3><a href="#">Drinking Ginger and Lemon Tea</a></h3>-->
-                        <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>-->
-                    <!--</div>-->
-                    <!--<div class="fh5co-post-meta">-->
-                        <!--<a href="#"><i class="icon-chat"></i> 33</a>-->
-                        <!--<a href="#"><i class="icon-clock2"></i> 2 hours ago</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="clearfix visible-sm-block"></div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">-->
-                <!--<div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">-->
-                    <!--<div class="fh5co-post-image">-->
-                        <!--<div class="fh5co-overlay"></div>-->
-                        <!--<div class="fh5co-category"><a href="#">Tips</a></div>-->
-                        <!--<img src="/personal/Public/images/Home/img_same_dimension_4.jpg" alt="Image" class="img-responsive">-->
-                    <!--</div>-->
-                    <!--<div class="fh5co-post-text">-->
-                        <!--<h3><a href="#">4 Easy Steps to Create a Soup</a></h3>-->
-                        <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>-->
-                    <!--</div>-->
-                    <!--<div class="fh5co-post-meta">-->
-                        <!--<a href="#"><i class="icon-chat"></i> 33</a>-->
-                        <!--<a href="#"><i class="icon-clock2"></i> 2 hours ago</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="clearfix visible-sm-block"></div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-4 col-md-offset-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">-->
-                <!--<a href="#" class="btn btn-primary btn-lg">View All Post</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-
-<!--<div class="fh5co-features-style-1" style="background-image: url(/personal/Public/images/Home/full_4.jpg);" data-stellar-background-ratio="0.5">-->
-    <!--<div class="fh5co-overlay"></div>-->
-    <!--<div class="container" style="z-index: 3; position: relative;">-->
-        <!--<div class="row p-b">-->
-            <!--<div class="col-md-6 col-md-offset-3 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">-->
-                <!--<h2 class="fh5co-heading">We Help Brands Grow</h2>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="fh5co-features">-->
-                <!--<div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">-->
-                    <!--<div class="icon"><i class="icon-ribbon"></i></div>-->
-                    <!--<h3>Brand Strategy</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>-->
-                <!--</div>-->
-                <!--<div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">-->
-                    <!--<div class="icon"><i class="icon-image22"></i></div>-->
-                    <!--<h3>Design + Idenity</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>-->
-                <!--</div>-->
-                <!--<div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">-->
-                    <!--<div class="icon"><i class=" icon-monitor"></i></div>-->
-                    <!--<h3>Web Development</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>-->
-                <!--</div>-->
-
-                <!--<div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">-->
-                    <!--<div class="icon"><i class="icon-video2"></i></div>-->
-                    <!--<h3>Video Direction</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>-->
-                <!--</div>-->
-                <!--<div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">-->
-                    <!--<div class="icon"><i class="icon-bag"></i></div>-->
-                    <!--<h3>E-Commerce Integration</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>-->
-                <!--</div>-->
-                <!--<div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.3s">-->
-                    <!--<div class="icon"><i class="icon-mail2"></i></div>-->
-                    <!--<h3>Email Strategy</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>-->
-                <!--</div>-->
-
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>-->
-
-<!--<div class="fh5co-features-style-2">-->
-    <!--<div class="container">-->
-        <!--<div class="row p-b">-->
-            <!--<div class="col-md-6 col-md-offset-3 text-center">-->
-                <!--<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Why Choose Us</h2>-->
-                <!--<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">-->
-                <!--<div class="fh5co-icon"><i class="icon-command"></i></div>-->
-                <!--<div class="fh5co-desc">-->
-                    <!--<h3>100% Free</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">-->
-                <!--<div class="fh5co-icon"><i class="icon-eye22"></i></div>-->
-                <!--<div class="fh5co-desc">-->
-                    <!--<h3>Retina Ready</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="clearfix visible-sm-block visible-xs-block"></div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">-->
-                <!--<div class="fh5co-icon"><i class="icon-toggle"></i></div>-->
-                <!--<div class="fh5co-desc">-->
-                    <!--<h3>Fully Responsive</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">-->
-                <!--<div class="fh5co-icon"><i class="icon-archive22"></i></div>-->
-                <!--<div class="fh5co-desc">-->
-                    <!--<h3>Lightweight</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="clearfix visible-sm-block visible-xs-block"></div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.3s">-->
-                <!--<div class="fh5co-icon"><i class="icon-heart22"></i></div>-->
-                <!--<div class="fh5co-desc">-->
-                    <!--<h3>Made with Love</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.6s">-->
-                <!--<div class="fh5co-icon"><i class="icon-umbrella"></i></div>-->
-                <!--<div class="fh5co-desc">-->
-                    <!--<h3>Eco Friendly</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="clearfix visible-sm-block visible-xs-block"></div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="fh5co-pricing-style-2">-->
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-            <!--<div class="row p-b">-->
-                <!--<div class="col-md-6 col-md-offset-3 text-center">-->
-                    <!--<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Pricing Plans</h2>-->
-                    <!--<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="pricing">-->
-                <!--<div class="pricing-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">-->
-                    <!--<h3 class="pricing-title">Basic</h3>-->
-                    <!--<p class="pricing-sentence">Little description here</p>-->
-                    <!--<div class="pricing-price"><span class="pricing-currency">$</span>19<span class="pricing-period">/ month</span></div>-->
-                    <!--<ul class="pricing-feature-list">-->
-                        <!--<li class="pricing-feature">10 presentations/month</li>-->
-                        <!--<li class="pricing-feature">Support at $25/hour</li>-->
-                        <!--<li class="pricing-feature">1 campaign/month</li>-->
-                    <!--</ul>-->
-                    <!--<button class="btn btn-success btn-outline">Choose plan</button>-->
-                <!--</div>-->
-                <!--<div class="pricing-item pricing-item--featured wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">-->
-                    <!--<h3 class="pricing-title">Standard</h3>-->
-                    <!--<p class="pricing-sentence">Little description here</p>-->
-                    <!--<div class="pricing-price"><span class="pricing-currency">$</span>29<span class="pricing-period">/ month</span></div>-->
-                    <!--<ul class="pricing-feature-list">-->
-                        <!--<li class="pricing-feature">50 presentations/month</li>-->
-                        <!--<li class="pricing-feature">5 hours of free support</li>-->
-                        <!--<li class="pricing-feature">10 campaigns/month</li>-->
-                    <!--</ul>-->
-                    <!--<button class="btn btn-success btn-lg">Choose plan</button>-->
-                <!--</div>-->
-                <!--<div class="pricing-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">-->
-                    <!--<h3 class="pricing-title">Enterprise</h3>-->
-                    <!--<p class="pricing-sentence">Little description here</p>-->
-                    <!--<div class="pricing-price"><span class="pricing-currency">$</span>79<span class="pricing-period">/ month</span></div>-->
-                    <!--<ul class="pricing-feature-list">-->
-                        <!--<li class="pricing-feature">Unlimited presentations</li>-->
-                        <!--<li class="pricing-feature">Unlimited support</li>-->
-                        <!--<li class="pricing-feature">Unlimited campaigns</li>-->
-                    <!--</ul>-->
-                    <!--<button class="btn btn-success btn-outline">Choose plan</button>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="fh5co-content-style-6">-->
-    <!--<div class="container">-->
-        <!--<div class="row p-b text-center">-->
-            <!--<div class="col-md-6 col-md-offset-3">-->
-                <!--<h2 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Explore the impossibility.</h2>-->
-                <!--<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">-->
-                <!--<a href="#" class="link-block">-->
-                    <!--<figure><img src="/personal/Public/images/Home/img_same_dimension_1.jpg" alt="Image" class="img-responsive img-rounded"></figure>-->
-                    <!--<h3>Responsive Layout</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>-->
-                <!--</a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>-->
-
-            <!--</div>-->
-            <!--<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".8s">-->
-                <!--<a href="#" class="link-block">-->
-                    <!--<figure><img src="/personal/Public/images/Home/img_same_dimension_2.jpg" alt="Image" class="img-responsive img-rounded"></figure>-->
-                    <!--<h3>Retina Ready</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>-->
-                <!--</a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>-->
-
-            <!--</div>-->
-            <!--<div class="clearfix visible-sm-block"></div>-->
-            <!--<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.1s">-->
-                <!--<a href="#" class="link-block">-->
-                    <!--<figure><img src="/personal/Public/images/Home/img_same_dimension_3.jpg" alt="Image" class="img-responsive img-rounded"></figure>-->
-                    <!--<h3>Creative UI Design</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>-->
-                <!--</a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>-->
-
-            <!--</div>-->
-            <!--<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.4s">-->
-                <!--<a href="#" class="link-block">-->
-                    <!--<figure><img src="/personal/Public/images/Home/img_same_dimension_4.jpg" alt="Image" class="img-responsive img-rounded"></figure>-->
-                    <!--<h3>Responsive Layout</h3>-->
-                    <!--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>-->
-                <!--</a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>-->
-
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="fh5co-counter-style-2" style="background-image: url(/personal/Public/images/Home/full_2.jpg);" data-stellar-background-ratio="0.5">-->
-    <!--<div class="fh5co-overlay"></div>-->
-    <!--<div class="container">-->
-        <!--<div class="fh5co-section-content-wrap">-->
-            <!--<div class="fh5co-section-content">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">-->
-                        <!--<div class="icon">-->
-                            <!--<i class="icon-command"></i>-->
-                        <!--</div>-->
-                        <!--<span class="fh5co-counter js-counter" data-from="0" data-to="28" data-speed="5000" data-refresh-interval="50"></span>-->
-                        <!--<span class="fh5co-counter-label">Clients Worked With</span>-->
-
-                    <!--</div>-->
-                    <!--<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">-->
-                        <!--<div class="icon">-->
-                            <!--<i class="icon-power"></i>-->
-                        <!--</div>-->
-                        <!--<span class="fh5co-counter js-counter" data-from="0" data-to="57" data-speed="5000" data-refresh-interval="50"></span>-->
-                        <!--<span class="fh5co-counter-label">Completed Projects</span>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">-->
-                        <!--<div class="icon">-->
-                            <!--<i class="icon-code2"></i>-->
-                        <!--</div>-->
-                        <!--<span class="fh5co-counter js-counter" data-from="0" data-to="34023" data-speed="5000" data-refresh-interval="50"></span>-->
-                        <!--<span class="fh5co-counter-label">Line of Codes</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+<div id="allmap" style="display: none"></div>
+<div class="fh5co-blog-style-1">
+    <div class="container">
+        <div class="row p-b">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Recent From Blog</h2>
+                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            </div>
+        </div>
+        <div class="row p-b">
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
+                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
+                    <div class="fh5co-post-image">
+                        <div class="fh5co-overlay"></div>
+                        <div class="fh5co-category"><a href="#">Tutorial</a></div>
+                        <img src="/Public/images/Home/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
+                    </div>
+                    <div class="fh5co-post-text">
+                        <h3><a href="#">How to Create Cards</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                    </div>
+                    <div class="fh5co-post-meta">
+                        <a href="#"><i class="icon-chat"></i> 33</a>
+                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
+                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">
+                    <div class="fh5co-post-image">
+                        <div class="fh5co-overlay"></div>
+                        <div class="fh5co-category"><a href="#">Health</a></div>
+                        <img src="/Public/images/Home/img_same_dimension_3.jpg" alt="Image" class="img-responsive">
+                    </div>
+                    <div class="fh5co-post-text">
+                        <h3><a href="#">Drinking Ginger and Lemon Tea</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                    </div>
+                    <div class="fh5co-post-meta">
+                        <a href="#"><i class="icon-chat"></i> 33</a>
+                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
+                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
+                    <div class="fh5co-post-image">
+                        <div class="fh5co-overlay"></div>
+                        <div class="fh5co-category"><a href="#">Tips</a></div>
+                        <img src="/Public/images/Home/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
+                    </div>
+                    <div class="fh5co-post-text">
+                        <h3><a href="#">4 Easy Steps to Create a Soup</a></h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                    </div>
+                    <div class="fh5co-post-meta">
+                        <a href="#"><i class="icon-chat"></i> 33</a>
+                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
+                <a href="#" class="btn btn-primary btn-lg">View All Post</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+<div class="fh5co-features-style-1" style="background-image: url(/Public/images/Home/full_4.jpg);" data-stellar-background-ratio="0.5">
+    <div class="fh5co-overlay"></div>
+    <div class="container" style="z-index: 3; position: relative;">
+        <div class="row p-b">
+            <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                <h2 class="fh5co-heading">We Help Brands Grow</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="fh5co-features">
+                <div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                    <div class="icon"><i class="icon-ribbon"></i></div>
+                    <h3>Brand Strategy</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                </div>
+                <div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
+                    <div class="icon"><i class="icon-image22"></i></div>
+                    <h3>Design + Idenity</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                </div>
+                <div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
+                    <div class="icon"><i class=" icon-monitor"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                </div>
+
+                <div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">
+                    <div class="icon"><i class="icon-video2"></i></div>
+                    <h3>Video Direction</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                </div>
+                <div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
+                    <div class="icon"><i class="icon-bag"></i></div>
+                    <h3>E-Commerce Integration</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                </div>
+                <div class="fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.3s">
+                    <div class="icon"><i class="icon-mail2"></i></div>
+                    <h3>Email Strategy</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+
+<div class="fh5co-features-style-2">
+    <div class="container">
+        <div class="row p-b">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Why Choose Us</h2>
+                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
+                <div class="fh5co-icon"><i class="icon-command"></i></div>
+                <div class="fh5co-desc">
+                    <h3>100% Free</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
+                <div class="fh5co-icon"><i class="icon-eye22"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Retina Ready</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">
+                <div class="fh5co-icon"><i class="icon-toggle"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Fully Responsive</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
+                <div class="fh5co-icon"><i class="icon-archive22"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Lightweight</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.3s">
+                <div class="fh5co-icon"><i class="icon-heart22"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Made with Love</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-feature wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.6s">
+                <div class="fh5co-icon"><i class="icon-umbrella"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Eco Friendly</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+        </div>
+    </div>
+</div>
+
+<div class="fh5co-pricing-style-2">
+    <div class="container">
+        <div class="row">
+            <div class="row p-b">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Pricing Plans</h2>
+                    <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="pricing">
+                <div class="pricing-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
+                    <h3 class="pricing-title">Basic</h3>
+                    <p class="pricing-sentence">Little description here</p>
+                    <div class="pricing-price"><span class="pricing-currency">$</span>19<span class="pricing-period">/ month</span></div>
+                    <ul class="pricing-feature-list">
+                        <li class="pricing-feature">10 presentations/month</li>
+                        <li class="pricing-feature">Support at $25/hour</li>
+                        <li class="pricing-feature">1 campaign/month</li>
+                    </ul>
+                    <button class="btn btn-success btn-outline">Choose plan</button>
+                </div>
+                <div class="pricing-item pricing-item--featured wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
+                    <h3 class="pricing-title">Standard</h3>
+                    <p class="pricing-sentence">Little description here</p>
+                    <div class="pricing-price"><span class="pricing-currency">$</span>29<span class="pricing-period">/ month</span></div>
+                    <ul class="pricing-feature-list">
+                        <li class="pricing-feature">50 presentations/month</li>
+                        <li class="pricing-feature">5 hours of free support</li>
+                        <li class="pricing-feature">10 campaigns/month</li>
+                    </ul>
+                    <button class="btn btn-success btn-lg">Choose plan</button>
+                </div>
+                <div class="pricing-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s">
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <p class="pricing-sentence">Little description here</p>
+                    <div class="pricing-price"><span class="pricing-currency">$</span>79<span class="pricing-period">/ month</span></div>
+                    <ul class="pricing-feature-list">
+                        <li class="pricing-feature">Unlimited presentations</li>
+                        <li class="pricing-feature">Unlimited support</li>
+                        <li class="pricing-feature">Unlimited campaigns</li>
+                    </ul>
+                    <button class="btn btn-success btn-outline">Choose plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fh5co-content-style-6">
+    <div class="container">
+        <div class="row p-b text-center">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Explore the impossibility.</h2>
+                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                <a href="#" class="link-block">
+                    <figure><img src="/Public/images/Home/img_same_dimension_1.jpg" alt="Image" class="img-responsive img-rounded"></figure>
+                    <h3>Responsive Layout</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>
+
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".8s">
+                <a href="#" class="link-block">
+                    <figure><img src="/Public/images/Home/img_same_dimension_2.jpg" alt="Image" class="img-responsive img-rounded"></figure>
+                    <h3>Retina Ready</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>
+
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.1s">
+                <a href="#" class="link-block">
+                    <figure><img src="/Public/images/Home/img_same_dimension_3.jpg" alt="Image" class="img-responsive img-rounded"></figure>
+                    <h3>Creative UI Design</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>
+
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.4s">
+                <a href="#" class="link-block">
+                    <figure><img src="/Public/images/Home/img_same_dimension_4.jpg" alt="Image" class="img-responsive img-rounded"></figure>
+                    <h3>Responsive Layout</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </a><p><a href="#" class="link-block"></a><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fh5co-counter-style-2" style="background-image: url(/Public/images/Home/full_2.jpg);" data-stellar-background-ratio="0.5">
+    <div class="fh5co-overlay"></div>
+    <div class="container">
+        <div class="fh5co-section-content-wrap">
+            <div class="fh5co-section-content">
+                <div class="row">
+                    <div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div class="icon">
+                            <i class="icon-command"></i>
+                        </div>
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="28" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Clients Worked With</span>
+
+                    </div>
+                    <div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                        <div class="icon">
+                            <i class="icon-power"></i>
+                        </div>
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="57" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Completed Projects</span>
+                    </div>
+                    <div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
+                        <div class="icon">
+                            <i class="icon-code2"></i>
+                        </div>
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="34023" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Line of Codes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+//    // 百度地图API功能
+//    var map = new BMap.Map("allmap");
+//
+//    function myFun(result){
+//        var lng = result.center.lng;
+//        var lat = result.center.lat;
+//        $.get("<?php echo U('Index/save_visitor');?>" + "?lng=" + lng + "&lat=" + lat);
+//    }
+//
+//    var myCity = new BMap.LocalCity();
+//
+//    myCity.get(myFun);
+
+// 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);
+//            alert(r.point.lng + ',' + r.point.lat);
+            $.get("<?php echo U('Index/save_visitor');?>" + "?lng=" + r.point.lng + "&lat=" + r.point.lat);
+        }
+        else {
+            console.log('failed'+this.getStatus());
+        }
+    },{enableHighAccuracy: true})
+
+</script>
 
 
 
@@ -512,17 +557,17 @@
                 <div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
                     <h3>Contacts</h3>
                     <ul class="fh5co-links fh5co-social">
-                        <li><a href="" id="contacts_me"><i class="icon icon-facebook2"></i> Phone</a></li>
-                        <li><i class="icon icon-twitter"></i> +86 136-3136-6483</li>
-                        <li><a href="#"><i class="icon icon-facebook2"></i> Location</a></li>
-                        <li><i class="icon icon-twitter"></i> 广东省 广州市</li>
+                        <li><a href="" id="contacts_me"><i class="icon icon-user"></i> Phone</a></li>
+                        <li><i class=""></i><?php if($_SESSION): ?>+86 136-3136-6483<?php else: ?> +86 13******483<?php endif; ?></li>
+                        <li><a href="#"><i class="icon icon-home"></i> Location</a></li>
+                        <li><i class="icon "></i> 广东省 广州市</li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
                     <h3>other</h3>
                     <ul class="fh5co-links fh5co-social">
-                        <li><a href="#"></i> Tools</a></li>
-                        <li></i> PHP + MySql + Apache + HTML + JQuery</li>
+                        <li><a href="#"><i class="icon icon-wrench"></i> Tools</a></li>
+                        <li> PHP </li>
                     </ul>
                     <p><a href="#" class="btn btn-success btn-sm btn-outline">返回顶部</a></p>
                 </div>
@@ -530,7 +575,7 @@
             </div>
             <div class="row fh5co-made">
                 <div class="col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-                    <p>Created By<i class="heart icon-heart">招</i></p>
+                    <p>Created By 招<i class="heart icon-heart"></i></p>
                 </div>
             </div>
         </div>
@@ -541,28 +586,30 @@
 <!-- END page-->
 
 <!-- jQuery -->
-<script src="/personal/Public/js/Home/jquery.min.js"></script>
+<script src="/Public/js/Home/jquery.min.js"></script>
 <!-- jQuery Easing -->
-<script src="/personal/Public/js/Home/jquery.easing.1.3.js"></script>
+<script src="/Public/js/Home/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="/personal/Public/js/Home/bootstrap.min.js"></script>
+<script src="/Public/js/Home/bootstrap.min.js"></script>
 <!-- Waypoints -->
-<script src="/personal/Public/js/Home/jquery.waypoints.min.js"></script>
+<script src="/Public/js/Home/jquery.waypoints.min.js"></script>
 <!-- Owl Carousel -->
-<script src="/personal/Public/js/Home/owl.carousel.min.js"></script>
+<script src="/Public/js/Home/owl.carousel.min.js"></script>
 <!-- Magnific Popup -->
-<script src="/personal/Public/js/Home/jquery.magnific-popup.min.js"></script>
+<script src="/Public/js/Home/jquery.magnific-popup.min.js"></script>
 <!-- Stellar -->
-<script src="/personal/Public/js/Home/jquery.stellar.min.js"></script>
+<script src="/Public/js/Home/jquery.stellar.min.js"></script>
 <!-- countTo -->
-<script src="/personal/Public/js/Home/jquery.countTo.js"></script>
+<script src="/Public/js/Home/jquery.countTo.js"></script>
 <!-- WOW -->
-<script src="/personal/Public/js/Home/wow.min.js"></script>
+<script src="/Public/js/Home/wow.min.js"></script>
+
+<script src="/Public/js/layer/layer.js"></script>
 <script>
     new WOW().init();
 </script>
 <!-- Main -->
-<script src="/personal/Public/js/Home/main.js"></script>
+<script src="/Public/js/Home/main.js"></script>
 
 </body>
 </html>

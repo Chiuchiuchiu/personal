@@ -4,9 +4,9 @@ return array(
     //数据库连接
     'DB_TYPE' => 'mysql',
     'DB_HOST'   => 'localhost',
-    'DB_NAME'   => 'zwx', // 数据库名
+    'DB_NAME'   => 'personal', // 数据库名
     'DB_USER'   => 'root', // 用户名
-    'DB_PWD'    => '', // 密码
+    'DB_PWD'    => 'root', // 密码
 //    'DB_HOST'   => 'qdm219678487.my3w.com',
 //    'DB_NAME'   => 'qdm219678487_db', // 数据库名
 //    'DB_USER'   => 'qdm219678487', // 用户名
