@@ -39,7 +39,7 @@ class MessageController extends BaseController{
      */
     protected function getCommlist($parent_id = 0,&$result = array())
     {
-        $arr = M('Message')->field('id, fdParentId, fdUserId, fdContent, fdAddTime, fdIp')
+        $arr = D('Message')->field('id, fdParentId, fdUserId, fdContent, fdAddTime')
             ->where(['fdParentId' => $parent_id, 'fdDel' => 0])
             ->order('fdAddTime DESC')
             ->limit(0, 15)
@@ -62,7 +62,7 @@ class MessageController extends BaseController{
      * @return string
      */
     protected function html($list){
-        if(!$list) return false;
+        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes" data-wow-duration="1s" data-wow-delay="1.1s"><a href="#send_msg" >评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
         $html = '';
         foreach($list as $k => $v){
             $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes" data-wow-duration="1s" data-wow-delay="1.1s">';
