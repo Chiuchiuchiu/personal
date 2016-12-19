@@ -9,10 +9,11 @@
 namespace Home\Controller;
 
 
+use Parent\Controller\BaseController;
 use Think\Controller;
 
-class MineController extends Controller{
-    public function Mine(){
-        $this->display('Mine');
+class MineController extends BaseController{
+    public function mine(){
+        $this->display('mine');
     }
 } 

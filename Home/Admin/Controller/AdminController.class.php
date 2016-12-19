@@ -16,7 +16,7 @@ class AdminController extends BaseController {
     /**
      * 登录页
      */
-    public function Index(){
+    public function index(){
 
         if(IS_POST){
 
@@ -76,21 +76,21 @@ class AdminController extends BaseController {
         $this->redirect('login');
     }
 
-    function create_verify($length = 1){
-        //验证码
-        $Verify = new \Think\Verify();
-        $Verify->imageH = '40';
-        $Verify->imageW = '100';
-        $Verify->length = $length;
-        $Verify->fontSize = '20';
-        $Verify->useCurve = false;
-        $Verify->entry();
-    }
-
-    // 检测输入的验证码是否正确，$code为用户输入的验证码字符串
-    function check_verify($code, $id = ''){
-        $verify = new \Think\Verify();
-        return $verify->check($code, $id);
-    }
+//    function create_verify($length = 1){
+//        //验证码
+//        $Verify = new \Think\Verify();
+//        $Verify->imageH = '40';
+//        $Verify->imageW = '100';
+//        $Verify->length = $length;
+//        $Verify->fontSize = '20';
+//        $Verify->useCurve = false;
+//        $Verify->entry();
+//    }
+//
+//    // 检测输入的验证码是否正确，$code为用户输入的验证码字符串
+//    function check_verify($code, $id = ''){
+//        $verify = new \Think\Verify();
+//        return $verify->check($code, $id);
+//    }
 
 }

@@ -4,9 +4,9 @@ use Think\Controller;
 use Think\Model;
 
 class IndexController extends Controller {
-    public function Index(){
+    public function index(){
 
-        $this->display('Index');
+        $this->display('index');
     }
 
     /**
@@ -19,5 +19,20 @@ class IndexController extends Controller {
         $data['fdCreate'] = date('Y-m-d H:i:s');
         $data['fdIP'] = get_client_ip();
         D('Visitors')->add($data);
+    }
+
+    /**
+     * 游客登录
+     */
+    public function login(){
+
+    }
+
+    /**
+     * 游客登出
+     */
+    public function logout(){
+        session(null);
+        $this->redirect('index');
     }
 }

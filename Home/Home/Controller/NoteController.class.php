@@ -13,7 +13,7 @@ namespace Home\Controller;
 use Parent\Controller\BaseController;
 
 class NoteController extends BaseController{
-    public function NoteLog(){
+    public function note_log(){
         $this->display();
     }
 } 
