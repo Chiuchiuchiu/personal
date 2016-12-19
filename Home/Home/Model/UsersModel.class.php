@@ -11,10 +11,11 @@ namespace Home\Model;
 use Think\Model\RelationModel;
 
 class UsersModel extends RelationModel{
-    public function get_user($phone, $id, $username, $type = 'count'){
+    public function get_user($phone, $id, $username, $email, $type = 'count'){
         $phone && $where['fdPhone'] = $phone;
         $id && $where['id'] = $id;
         $username && $where['fdNickName'] = $username;
+        $email && $where['fdMail'] = $email;
         $where['_logic'] = 'OR';
 
         return $this->where($where)->$type();

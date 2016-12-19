@@ -46,7 +46,7 @@ class SignUpController extends BaseController{
             in_array($verify, $verify_list) || $this->ajaxResponse(40006, $this->config[40006]);
 
             //查找用户是否有重复
-            $u_model->get_user($phone, '', $nickname, 'count') && $this->ajaxResponse(50003, $this->config[50003]);
+            $u_model->get_user($phone, '', $nickname, $email, 'count') && $this->ajaxResponse(50003, $this->config[50003]);
 
             //注册
             try{
@@ -83,6 +83,13 @@ class SignUpController extends BaseController{
 
         }
         $this->display();
+    }
+
+    /**
+     * 用户登录
+     */
+    public function login(){
+
     }
 
     /**

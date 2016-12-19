@@ -19,7 +19,12 @@ class MessageController extends BaseController{
     public function add(){
 
         $list = $this->getCommlist();
+        foreach($list as &$v){
+            $v['fdUserName'] = get_user($v['fdUserId'])['fdNickName'] ?: substr($v['fdIp'], 0, -3) . '***';
+            $v['fdParentName'] = get_user($v['fdParentId'])['fdNickName'] ?: substr($v['fdIp'], 0, -3) . '***';
+        }
         $html = $this->html($list);
+
 
         var_dump($_SESSION);
         $this->assign('html', $html);
@@ -34,7 +39,7 @@ class MessageController extends BaseController{
      */
     protected function getCommlist($parent_id = 0,&$result = array())
     {
-        $arr = M('Message')->field('id, fdParentId, fdUserId, fdContent, fdAddTime')
+        $arr = M('Message')->field('id, fdParentId, fdUserId, fdContent, fdAddTime, fdIp')
             ->where(['fdParentId' => $parent_id, 'fdDel' => 0])
             ->order('fdAddTime DESC')
             ->limit(0, 15)
@@ -63,9 +68,9 @@ class MessageController extends BaseController{
             $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes" data-wow-duration="1s" data-wow-delay="1.1s">';
             $html .= '<div class="fh5co-icon"> <h4 style="margin:6px 0 0 0;font-size: medium">';
             if($list[$k]['fdParentId']){
-                $html .= $list[$k]['fdUserId'] . "&nbsp;<span style='font-family:\"Microsoft YaHei\", \"微软雅黑\"'>评论:</span>&nbsp;" . $list[$k]['fdParentId'];
+                $html .= $list[$k]['fdUserName'] ?: "匿名" . "&nbsp;<span style='font-family:\"Microsoft YaHei\", \"微软雅黑\"'>评论:</span>&nbsp;" . $list[$k]['fdParentName'] ?: "匿名";
             }else{
-                $html .= $list[$k]['fdUserId'];
+                $html .= $list[$k]['fdUserName'] ?: "匿名";
             }
 
             $html .= '</h4><a style="float: right;font-size: small" href="javascript:;" class="reply">回复</a>';
@@ -88,6 +93,8 @@ class MessageController extends BaseController{
      * 删除留言
      */
     public function del(){
-
+        $id = I('get.id', 0, "intval");
+        $id || $this->ajaxResponse(50000, $this->config[50000]);
+        D('Message')->where(['id' => $id])->save(['fdDel' => 1]) === false ? $this->ajaxResponse(40004, $this->config[40004]) : $this->ajaxResponse(20000, $this->config[20000]);
     }
 } 

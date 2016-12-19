@@ -15,8 +15,11 @@
         </div>
         <div class="col-lg-3 col-md-4 col-sm-4 text-right fh5co-link-wrap">
             <ul class="fh5co-special" data-offcanvass="yes">
-                <li><a href="{:U('Admin/Admin/index')}" class="call-to-action">Login</a></li>
-                <!--<li>xxx</li>-->
+                <if condition="1 eq 1">
+                    <li><a href="{:U('Admin/Admin/index')}" class="call-to-action">Login</a></li>
+                <else/>
+                    <li>欢迎回来 xxx  <span style="cursor: pointer;font-size: 12px" class="logout"><退出></span></li>
+                </if>
             </ul>
         </div>
     </div>
