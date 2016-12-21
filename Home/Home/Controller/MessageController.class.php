@@ -26,7 +26,7 @@ class MessageController extends BaseController{
         $html = $this->html($list);
 
 
-        var_dump($_SESSION);
+
         $this->assign('html', $html);
         $this->display();
     }
@@ -62,10 +62,10 @@ class MessageController extends BaseController{
      * @return string
      */
     protected function html($list){
-        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes" data-wow-duration="1s" data-wow-delay="1.1s"><a href="#send_msg" >评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
+        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes"><a href="#send_msg" >评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
         $html = '';
         foreach($list as $k => $v){
-            $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes" data-wow-duration="1s" data-wow-delay="1.1s">';
+            $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes">';
             $html .= '<div class="fh5co-icon"> <h4 style="margin:6px 0 0 0;font-size: medium">';
             if($list[$k]['fdParentId']){
                 $html .= $list[$k]['fdUserName'] ?: "匿名" . "&nbsp;<span style='font-family:\"Microsoft YaHei\", \"微软雅黑\"'>评论:</span>&nbsp;" . $list[$k]['fdParentName'] ?: "匿名";
