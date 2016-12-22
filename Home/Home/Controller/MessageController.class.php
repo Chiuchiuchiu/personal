@@ -18,14 +18,7 @@ class MessageController extends BaseController{
      */
     public function add(){
 
-        $list = $this->getCommlist();
-        foreach($list as &$v){
-            $v['fdUserName'] = get_user($v['fdUserId'])['fdNickName'] ?: substr($v['fdIp'], 0, -3) . '***';
-            $v['fdParentName'] = get_user($v['fdParentId'])['fdNickName'] ?: substr($v['fdIp'], 0, -3) . '***';
-        }
-        $html = $this->html($list);
-
-
+        $html = $this->html($this->getCommlist());
 
         $this->assign('html', $html);
         $this->display();
@@ -39,9 +32,11 @@ class MessageController extends BaseController{
      */
     protected function getCommlist($parent_id = 0,&$result = array())
     {
-        $arr = D('Message')->field('id, fdParentId, fdUserId, fdContent, fdAddTime')
-            ->where(['fdParentId' => $parent_id, 'fdDel' => 0])
-            ->order('fdAddTime DESC')
+        $arr = D('Message')->alias('a')
+            ->field('a.*, b.fdNickName')
+            ->join('tbusers AS b ON a.fdUserId = b.id', 'LEFT')
+            ->where(['a.fdParentId' => $parent_id, 'a.fdDel' => 0])
+            ->order('a.fdAddTime DESC')
             ->limit(0, 15)
             ->select();
 
@@ -62,27 +57,27 @@ class MessageController extends BaseController{
      * @return string
      */
     protected function html($list){
-        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes"><a href="#send_msg" >评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
+        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes"><a href="#send_msg" class="op">评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
         $html = '';
-        foreach($list as $k => $v){
+        foreach($list as &$v){
             $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes">';
-            $html .= '<div class="fh5co-icon"> <h4 style="margin:6px 0 0 0;font-size: medium">';
-            if($list[$k]['fdParentId']){
-                $html .= $list[$k]['fdUserName'] ?: "匿名" . "&nbsp;<span style='font-family:\"Microsoft YaHei\", \"微软雅黑\"'>评论:</span>&nbsp;" . $list[$k]['fdParentName'] ?: "匿名";
+            $html .= '<div class="fh5co-icon content"> <h4 style=";font-size: medium">';
+            if($v['fdParentId']){
+                $html .= "<span style='color: #ffffff'>" . ($v['fdNickName'] ?: (substr($v['fdIP'], 0, -3) . '***')) . "</span>&nbsp;<span style='color: gray; font-family:\"Microsoft YaHei\", \"微软雅黑\"'>回复:</span>";
             }else{
-                $html .= $list[$k]['fdUserName'] ?: "匿名";
+                $html .= "<span style='color: #ffffff'>" . ($v['fdNickName'] ?: (substr($v['fdIP'], 0, -3) . '***')) . "</span>";
             }
 
-            $html .= '</h4><a style="float: right;font-size: small" href="javascript:;" class="reply">回复</a>';
+            $html .= '<div><span style="color:gray; margin-right: 10px;">' . date('Y-m-d H:i:s', $v['fdAddTime']) . '</span><a href="javascript:;" class="reply" uname="'. $v['fdNickName'] .'" uid="'. $v['fdUserId'] .'">回复</a></div></h4>';
             if($this->type_id == 1){
-                $html .= '<a style="float: right;font-size: small" href="javascript:;" class="reply">删除</a>';
+                $html .= '<a href="javascript:;" class="reply">删除</a>';
             }
 
             $html .='</div>';
             $html .= '<div class="fh5co-desc">';
-            $html .= '<p style="margin-bottom:0px;">' . $list[$k]['fdContent'] . '</p>';
-            if($list[$k]['children']){
-                $html .= $this->html($list[$k]['children']);
+            $html .= '<p style="word-wrap: break-word; margin:6px 0 0 0;">' . $v['fdContent'] . '</p>';
+            if($v['children']){
+                $html .= $this->html($v['children']);
             }
             $html .= '</div>';
             $html .= '</div>';
