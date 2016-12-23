@@ -20,6 +20,23 @@ class MessageController extends BaseController{
 
         $html = $this->html($this->getCommlist());
 
+        if(IS_POST){
+            $content = $_POST['content'];
+            $parent_id = I('post.parent_id', -1, 'intval');
+
+            $content || $this->ajaxResponse(40015, $this->config[40015]);
+            $parent_id < 0 && $this->ajaxResponse(50000, $this->config[50000]);
+
+            $data['fdContent'] = $content;
+            $data['fdParentId'] = $parent_id;
+            $data['fdIP'] = $this->user_ip;
+            $data['fdUserId'] = $this->user_id ?: 0;
+            $data['fdAddTime'] = time();
+
+            D('Message')->add($data) ? $this->ajaxResponse(20000, $this->config[20000]) : $this->ajaxResponse(40014, $this->config[40014]);
+        }
+
+        $this->assign('user_id', $this->user_id);
         $this->assign('html', $html);
         $this->display();
     }
@@ -68,7 +85,7 @@ class MessageController extends BaseController{
                 $html .= "<span style='color: #ffffff'>" . ($v['fdNickName'] ?: (substr($v['fdIP'], 0, -3) . '***')) . "</span>";
             }
 
-            $html .= '<div><span style="color:gray; margin-right: 10px;">' . date('Y-m-d H:i:s', $v['fdAddTime']) . '</span><a href="javascript:;" class="reply" uname="'. $v['fdNickName'] .'" uid="'. $v['fdUserId'] .'">回复</a></div></h4>';
+            $html .= '<div><span style="color:gray; margin-right: 10px;">' . date('Y-m-d H:i:s', $v['fdAddTime']) . '</span><a href="javascript:;" class="reply" uname="'. $v['fdNickName'] .'" cid="'. $v['id'] .'">回复</a></div></h4>';
             if($this->type_id == 1){
                 $html .= '<a href="javascript:;" class="reply">删除</a>';
             }

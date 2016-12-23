@@ -38,21 +38,23 @@
         <div class="container" style="margin-top: 50px;">
             <div class="row p-b">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <button style="width: 40%" class="btn btn-success op wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">评 论</button>
+                    <button style="width: 40%" class="btn btn-success reply wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s" cid="0">添加一条评论</button>
                 </div>
             </div>
         </div>
         <div class="theme-popover">
             <div class="modal-header">
-                <span class="mod-tit">留言</span>
+                <span class="mod-tit re-who"></span>
                 <a href="javascript:void(0);" title="关闭" class="close">×</a>
             </div>
-            <form  method="post" action="" id="post_on_list">
+            <form  method="post" action="" id="post_message">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12" >
-                            <textarea class="form-control" rows="4" name="content"></textarea>
+                            <script id="editor" type="text/plain" style="width:auto;height:300px;"></script>
+                            <!--<textarea class="form-control" rows="4" name="content"></textarea>-->
                         </div>
+                        <input type="hidden" name="cid" value=""/>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -66,6 +68,9 @@
 </div>
 
 <script>
+    var ue = UE.getEditor('editor');
+    var user_name = '';
+    var content_id = '';
     $(function(){
         $('.close').click(function(){
             $('.theme-popover-mask').fadeOut(100);
@@ -73,19 +78,32 @@
         })
     });
 
-    $('.op').click(function(){
-        $('.theme-popover').fadeIn(300);
-        $('.theme-popover-mask').show();
-    });
-
     $('.reply').click(function(){
         $('.theme-popover').fadeIn(300);
         $('.theme-popover-mask').show();
 
-        var user_name = $(this).attr('uname');
-        var user_id = $(this).attr('uid');
+        user_name = $(this).attr('uname');
+        content_id = $(this).attr('cid');
 
-        $('textarea[name="content"]').attr("placeholder", '回复: '+user_name);
+        $('input[name="cid"]').val(content_id);
+        $('.re-who').html('回复: '+user_name);
 
     });
+
+    $('#post_message').submit(function(){
+        var _this = $(this);
+        var content = ue.getContent();
+        var cid = $('input[name="cid"]').val();
+
+        if(!content){layer.msg('请输入内容...');return false;}
+        if(!cid){layer.msg('参数缺失,请联系博主...');return false;}
+
+        _this.find('button[type=submit]').prop('disabled', true);
+        console.log(content);
+        console.log(cid);
+        $.post("{:U('Home/Message/add')}", {content:content,parent_id:cid}, function(re){
+            console.log(re);return;
+        });
+        return false;
+    })
 </script>

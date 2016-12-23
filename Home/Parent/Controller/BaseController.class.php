@@ -13,10 +13,12 @@ use Think\Controller;
 class BaseController extends Controller{
 
     protected $config = '';
-    protected $user_id = null;
-    protected $type_id = null;
-    protected $user_name = null;
-    protected $user_token = null;
+    protected $user_id;
+    protected $type_id;
+    protected $user_name;
+    protected $user_token;
+    protected $user_ip;
+
 
     public function _initialize()
     {
@@ -24,6 +26,7 @@ class BaseController extends Controller{
         $this->type_id = session('type');
         $this->user_name = session('name');
         $this->user_token = session('token');
+        $this->user_ip = get_client_ip();
 
         preg_match('/^\w+/', $_SERVER['HTTP_HOST'], $matches);
         $this->assign('type_id', $this->type_id);

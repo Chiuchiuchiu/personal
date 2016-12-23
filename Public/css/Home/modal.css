@@ -17,7 +17,7 @@
 .theme-popover {
     z-index:9999;
     position:fixed;
-    top:50%;
+    top:30%;
     left:50%;
     width: 660px;
     height: auto;
