@@ -16,7 +16,7 @@ class IndexController extends Controller {
         $get = I('get.');
         $data['fdLng'] = $get['lng'];
         $data['fdLat'] = $get['lat'];
-        $data['fdCreate'] = date('Y-m-d H:i:s');
+        $data['fdCreate'] = time();
         $data['fdIP'] = get_client_ip();
         D('Visitors')->add($data);
     }

@@ -19,7 +19,7 @@ class MessageController extends BaseController{
     public function add(){
 
         $html = $this->html($this->getCommlist());
-
+//var_dump($_SESSION);
         if(IS_POST){
             $content = $_POST['content'];
             $parent_id = I('post.parent_id', -1, 'intval');
@@ -36,7 +36,6 @@ class MessageController extends BaseController{
             D('Message')->add($data) ? $this->ajaxResponse(20000, $this->config[20000]) : $this->ajaxResponse(40014, $this->config[40014]);
         }
 
-        $this->assign('user_id', $this->user_id);
         $this->assign('html', $html);
         $this->display();
     }
@@ -79,25 +78,21 @@ class MessageController extends BaseController{
         foreach($list as &$v){
             $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes">';
             $html .= '<div class="fh5co-icon content"> <h4 style=";font-size: medium">';
-            if($v['fdParentId']){
-                $html .= "<span style='color: #ffffff'>" . ($v['fdNickName'] ?: (substr($v['fdIP'], 0, -3) . '***')) . "</span>&nbsp;<span style='color: gray; font-family:\"Microsoft YaHei\", \"微软雅黑\"'>回复:</span>";
-            }else{
-                $html .= "<span style='color: #ffffff'>" . ($v['fdNickName'] ?: (substr($v['fdIP'], 0, -3) . '***')) . "</span>";
-            }
+            $html .= "<span style='color: #ffffff'>" . ($v['fdNickName'] ?: (substr($v['fdIP'], 0, -3) . '***')) . "</span>";
 
-            $html .= '<div><span style="color:gray; margin-right: 10px;">' . date('Y-m-d H:i:s', $v['fdAddTime']) . '</span><a href="javascript:;" class="reply" uname="'. $v['fdNickName'] .'" cid="'. $v['id'] .'">回复</a></div></h4>';
-            if($this->type_id == 1){
-                $html .= '<a href="javascript:;" class="reply">删除</a>';
-            }
+            $v['fdParentId'] && $html .= "&nbsp;<span style='color: gray; font-family:\"Microsoft YaHei\", \"微软雅黑\"'>回复:</span>";
 
-            $html .='</div>';
+            $html .= '<div><span style="color:gray; margin-right: 10px;">' . date('Y-m-d H:i:s', $v['fdAddTime']) . '</span><a href="javascript:;" class="reply" uname="'. $v['fdNickName'] .'" cid="'. $v['id'] .'">回复</a>';
+
+            $this->type_id == 1 && $html .= ' <a href="javascript:;" onclick="del('. $v['id'] .')">删除</a>';
+
+            $html .='</div></h4></div>';
             $html .= '<div class="fh5co-desc">';
             $html .= '<p style="word-wrap: break-word; margin:6px 0 0 0;">' . $v['fdContent'] . '</p>';
-            if($v['children']){
-                $html .= $this->html($v['children']);
-            }
-            $html .= '</div>';
-            $html .= '</div>';
+
+            $v['children'] && $html .= $this->html($v['children']);
+
+            $html .= '</div></div>';
         }
         return $html;
     }

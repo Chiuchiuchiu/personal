@@ -1,7 +1,7 @@
 <style>
     .mes{
-        border:2px solid #e7ebef;
-        margin-bottom: 10px;
+        border:1px solid #e7ebef;
+        margin-bottom: 6px;
     }
     .content > h4 {
         margin:14px 0 0 0;
@@ -22,37 +22,36 @@
         <div class="container">
             <div class="row p-b">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="color: #fff;">Leave a Message</h2>
-                    <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s"><i class="icon icon-pencil"></i> 畅所欲言 <i class="icon icon-pencil"></i></p>
+                    <h2 class="fh5co-heading wow fadeInUp"  style="color: #fff;">Leave a Message</h2>
+                    <p class="wow fadeInUp" ><i class="icon icon-pencil"></i> 畅所欲言 <i class="icon icon-pencil"></i></p>
                 </div>
             </div>
             <div class="row">
-
                 <div class="clearfix visible-sm-block visible-xs-block"></div>
                 {$html}
-
-                <div class="clearfix visible-sm-block visible-xs-block"></div>
             </div>
         </div>
 
         <div class="container" style="margin-top: 50px;">
             <div class="row p-b">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <button style="width: 40%" class="btn btn-success reply wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s" cid="0">添加一条评论</button>
+                    <a href="javascript:;" class="btn btn-success btn-sm btn-outline wow fadeInUp reply" cid="0" >添加一条评论</a>
+                    <a href="{:U('Index/index')}" class="btn btn-success btn-sm btn-outline wow fadeInUp" >返回首页</a>
                 </div>
             </div>
         </div>
+
+        <!--模态框-->
         <div class="theme-popover">
             <div class="modal-header">
                 <span class="mod-tit re-who"></span>
-                <a href="javascript:void(0);" title="关闭" class="close">×</a>
+                <a href="javascript:;" title="关闭" class="close">×</a>
             </div>
             <form  method="post" action="" id="post_message">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12" >
                             <script id="editor" type="text/plain" style="width:auto;height:300px;"></script>
-                            <!--<textarea class="form-control" rows="4" name="content"></textarea>-->
                         </div>
                         <input type="hidden" name="cid" value=""/>
                     </div>
@@ -64,6 +63,7 @@
         </div>
 
         <div class="theme-popover-mask"></div>
+        <!--模态框-->
     </div>
 </div>
 
@@ -72,6 +72,7 @@
     var user_name = '';
     var content_id = '';
     $(function(){
+        $('.wow').attr({'data-wow-duration': "1s", 'data-wow-delay':".5s"});
         $('.close').click(function(){
             $('.theme-popover-mask').fadeOut(100);
             $('.theme-popover').slideUp(200);
@@ -87,10 +88,27 @@
 
         $('input[name="cid"]').val(content_id);
         $('.re-who').html('回复: '+user_name);
-
     });
 
     $('#post_message').submit(function(){
+        if("{$_SESSION['type']}"){
+            add();
+        }else{
+            //询问框
+            layer.confirm('您还未登录,是否需要登录?否则系统只会记录你的ip', {
+                btn: ['去登录','回复'] //按钮
+            }, function(){
+                layer.msg('GOGOGO!', {icon: 1, time: 1000},function(){
+                    window.location.href="{:U('Home/SignUp/login')}";
+                });
+            }, function(){
+                add();
+            });
+        }
+        return false;
+    });
+
+    function add(){
         var _this = $(this);
         var content = ue.getContent();
         var cid = $('input[name="cid"]').val();
@@ -99,11 +117,20 @@
         if(!cid){layer.msg('参数缺失,请联系博主...');return false;}
 
         _this.find('button[type=submit]').prop('disabled', true);
-        console.log(content);
-        console.log(cid);
         $.post("{:U('Home/Message/add')}", {content:content,parent_id:cid}, function(re){
-            console.log(re);return;
+            layer.msg(re.msg, {time:2000}, function(){
+                window.location.reload();
+            });
         });
-        return false;
-    })
+    }
+
+    function del(id){
+        console.log(id);
+        !id && layer.msg('参数缺失,请联系博主...');
+        $.get("{:U('Home/Message/del')}", {id:id}, function(re){
+            layer.msg(re.msg, {time:1000}, function(){
+                window.location.reload();
+            });
+        })
+    }
 </script>

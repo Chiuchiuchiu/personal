@@ -89,7 +89,7 @@ class SignUpController extends BaseController{
      * 用户登录
      */
     public function login(){
-
+        echo "登录页";
     }
 
     /**

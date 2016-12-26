@@ -16,7 +16,6 @@ class BaseController extends Controller{
     protected $user_id;
     protected $type_id;
     protected $user_name;
-    protected $user_token;
     protected $user_ip;
 
 
@@ -25,13 +24,13 @@ class BaseController extends Controller{
         $this->user_id = session('id');
         $this->type_id = session('type');
         $this->user_name = session('name');
-        $this->user_token = session('token');
+//        $this->user_token = session('token');
         $this->user_ip = get_client_ip();
 
         preg_match('/^\w+/', $_SERVER['HTTP_HOST'], $matches);
         $this->assign('type_id', $this->type_id);
         $this->assign('user_id',$this->user_id);
-        $this->assign('name', session('name'));
+        $this->assign('user_name', $this->user_name);
     }
 
     public function __construct(){

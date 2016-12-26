@@ -52,7 +52,7 @@ class AdminController extends BaseController {
             $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['fdName'];
             $_SESSION['type'] = $user['fdType'];
-            $_SESSION['token'] = $user['fdToken'];
+//            $_SESSION['token'] = $user['fdToken'];
 
             $this->ajaxResponse(20000, C('CODE_AND_MSG')['20000']);
             exit;

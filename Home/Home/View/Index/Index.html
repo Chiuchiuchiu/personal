@@ -8,17 +8,17 @@
         <div class="col-lg-6 col-md-5 col-sm-5 text-center fh5co-link-wrap">
             <ul data-offcanvass="yes">
                 <li><a href="{:U('Mine/mine')}">Mine</a></li>
-                <li><a href="#">Photos</a></li>
                 <li><a href="{:U('Message/add')}">Message</a></li>
                 <li><a href="#contacts_me" name="contacts_me">Contacts me</a></li>
+                <li><a href="#">Photos (Comming soon)</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-4 text-right fh5co-link-wrap">
             <ul class="fh5co-special" data-offcanvass="yes">
-                <if condition="1 eq 1">
-                    <li><a href="{:U('Admin/Admin/index')}" class="call-to-action">Login</a></li>
+                <if condition="$user_id">
+                    <li>欢迎回来 {$user_name}  <span style="cursor: pointer;font-size: 12px" class="logout"><退出></span></li>
                 <else/>
-                    <li>欢迎回来 xxx  <span style="cursor: pointer;font-size: 12px" class="logout"><退出></span></li>
+                    <li><a href="{:U('Admin/Admin/index')}" class="call-to-action">Login</a></li>
                 </if>
             </ul>
         </div>
@@ -27,7 +27,7 @@
 
 
 <div class="fh5co-cover fh5co-cover-style-2 js-full-height" data-stellar-background-ratio="0.5" data-next="yes"  style="background-image: url(__PUBLIC__/images/Home/header_bg.jpg);">
-                <span class="scroll-btn wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.7s">
+                <span class="scroll-btn wow fadeInUp">
                     <a href="#">
                         <span class="mouse"><span></span></span>
                     </a>
@@ -38,12 +38,12 @@
             <div class="row">
                 <div class="col-md-push-6 col-md-6 full-height js-full-height">
                     <div class="fh5co-cover-intro">
-                        <h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                        <h1 class="cover-text-lead wow fadeInUp" >
                             Create Something Funny
                             <!--做一名逗比的程序员-->
                         </h1>
-                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s"></h2>
-                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome~</h2>
+                        <h2 class="cover-text-sublead wow fadeInUp" ></h2>
+                        <h2 class="cover-text-sublead wow fadeInUp" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome~</h2>
                         <!--<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">-->
                         <!--<a href="#" class="btn btn-primary btn-outline btn-lg">click</a>-->
                         <!--</p>-->
@@ -61,37 +61,14 @@
     <div class="container">
         <div class="row p-b">
             <div class="col-md-6 col-md-offset-3 text-center">
-                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">参与项目</h2>
-                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">People in the eyes of the talent is remarkable, not a genius, but a constant effort to pay. Exercise 10 thousand hours is necessary for any people to become extraordinary from the ordinary.</p>
+                <h2 class="fh5co-heading wow fadeInUp" >参与项目</h2>
+                <p class="wow fadeInUp" >People in the eyes of the talent is remarkable, not a genius, but a constant effort to pay. Exercise 10 thousand hours is necessary for any people to become extraordinary from the ordinary.</p>
             </div>
         </div>
     </div>
     <div class="fh5co-projects">
         <ul>
-            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/xixun3.png);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
-                <a href="http://zt13.xixunyun.com/" target="_blank">
-                    <div class="fh5co-overlay"></div>
-                    <div class="container">
-                        <div class="fh5co-text">
-                            <div class="fh5co-text-inner">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h3>习讯顶岗实习管理2.0平台</h3>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <p> 依托领先的SaaS服务技术和移动互联网理念，
-                                            提供了创新及完善的顶岗实习全流程解决方案，
-                                            使校内校外、线上线下、岗前岗中岗后等所有环节形成一个有机的整体。
-                                            产品贴合学校的顶岗实习工作，
-                                            真正实现顶岗实习标准化、科学化、系统化的教学管理和实习就业综合服务。
-                                        </p></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/xixun1.png);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
+            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/xixun1.png);"  data-stellar-background-ratio="0.5">
                 <a href="http://xixunyun.com/" target="_blank">
                     <div class="fh5co-overlay"></div>
                     <div class="container">
@@ -99,7 +76,7 @@
                             <div class="fh5co-text-inner">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h3>习讯顶岗实习管理3.0平台</h3>
+                                        <h3>习讯顶岗实习管理平台</h3>
                                     </div>
                                     <div class="col-md-8">
                                         <p> 依托领先的SaaS服务技术和移动互联网理念，
@@ -107,14 +84,57 @@
                                             使校内校外、线上线下、岗前岗中岗后等所有环节形成一个有机的整体。
                                             产品贴合学校的顶岗实习工作，
                                             真正实现顶岗实习标准化、科学化、系统化的教学管理和实习就业综合服务。
-                                        </p></div>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
             </li>
-            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/full_4.jpg);" data-wow-duration="1s" data-wow-delay="1.4s" data-stellar-background-ratio="0.5">
+            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/);" data-stellar-background-ratio="0.5">
+                <a href="http://www.cwq.com" target="_blank">
+                    <div class="fh5co-overlay"></div>
+                    <div class="container">
+                        <div class="fh5co-text">
+                            <div class="fh5co-text-inner">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>城外圈：一站式智能营销平台</h3>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p> 城外圈-整合名人名媒,意见领袖,网络红人媒体资源,覆盖超过138万+微信大号,视频直播,朋友圈,微博,新闻媒体等资源
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/);" data-stellar-background-ratio="0.5">
+                <a href="http://www.chuanyuebuluo.com/" target="_blank">
+                    <div class="fh5co-overlay"></div>
+                    <div class="container">
+                        <div class="fh5co-text">
+                            <div class="fh5co-text-inner">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>穿越部落</h3>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p> 穿越部落是中国青少年社会实践平台，2015年创办于惠州，是一家青少年创新实践教育机构。
+                                            公司总部位于广州。通过打造互联网教育品牌，为青年和家长提供有效的互动平台和智能工具，结合国际先进的素质教育理念，激发青少年潜能，帮助青少年成长。
+                                            是中国青少年社会实践教育行业第一品牌。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="wow fadeInUp" style="background-image: url(__PUBLIC__/images/Home/full_4.jpg);" data-stellar-background-ratio="0.5">
                 <a>
                     <div class="fh5co-overlay"></div>
                     <div class="container">
@@ -255,8 +275,6 @@
         </div>
     </div>
 </div>
-
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
 
 <div class="fh5co-features-style-2">
     <div class="container">
@@ -447,6 +465,7 @@
 </div>
 
 <script type="text/javascript">
+    $('.wow').attr({'data-wow-duration': "1s", 'data-wow-delay':".5s"});
 //    // 百度地图API功能
 //    var map = new BMap.Map("allmap");
 //
