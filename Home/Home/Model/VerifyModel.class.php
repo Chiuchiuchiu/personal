@@ -31,7 +31,7 @@ class VerifyModel extends RelationModel{
 
     public function change_verify($mail, $verify){
         $where['fdMail'] = $mail;
-//        $where['fdVerify'] = $verify;
+        $where['fdVerify'] = $verify;
         return $this->where($where)->save(['fdUsed' => 1, 'fdState' => 0]);
     }
 }

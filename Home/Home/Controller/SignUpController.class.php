@@ -115,8 +115,8 @@ class SignUpController extends BaseController{
             $mail_config['SERVER_PWD'],
             $mail_config['SEND_FROM'],
             $mail,
-            '验证码',
-            '【zhaowenxi.com】感谢您的关注！验证码是：' . $verity_str . "。记住噢~5分钟后失效。"
+            '来自zhaowenxi.com的验证码',
+            '【zhaowenxi.com】感谢您的关注！验证码是：' . $verity_str . "。请及时使用，记住噢~5分钟后失效。"
         );
 
         //保存验证码，后续验证
