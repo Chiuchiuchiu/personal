@@ -1,0 +1,77 @@
+<style>
+    .form-control {
+        margin:0 40% 10px 41%;width:210px;background:rgba(0, 0, 0, 0);
+    }
+</style>
+<div style="background:#262626">
+    <div class="fh5co-features-style-2">
+        <div class="container">
+            <div class="row p-b">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h2 class="fh5co-heading wow fadeInUp" style="color: #fff;">Login</h2>
+                    <p class="wow fadeInUp" ><i class="icon icon-user"></i> 用户登录 <i class="icon icon-user"></i></p>
+                </div>
+            </div>
+            <form id="register" >
+                <input class="form-control wow fadeInUp" type="text" placeholder="请输入昵称" name="username"/>
+                <input class="form-control wow fadeInUp" type="password" name="password" placeholder="请输入密码"/>
+
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <button class="btn btn-success btn-sm btn-outline wow fadeInUp" type="submit">登录</button>
+                    <a href="{:U('Index/index')}" class="btn btn-success btn-sm btn-outline wow fadeInUp" >返回首页</a>
+                </div>
+                <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp">
+                    <label style="font-size: small"><span>还未拥有帐户?</span> <a href="{:U('SignUp/register')}">注册</a> <i class="icon icon-hand-o-right"></i></label>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+<script src="__PUBLIC__/js/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var nick_name = $("input[name='username']");
+        var password = $("input[name='password']");
+
+        $("#register").submit(function(){
+            //登录
+            if(!nick_name.val()){
+                nick_name.focus();
+                layer.msg('昵称呢??');
+                return false;
+            }
+            if(!password.val()){
+                password.focus();
+                layer.msg('密码呢??');
+                return false;
+            }
+
+            $.ajax({
+                url: "{:U('Home/SignUp/login')}",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    user_name:nick_name.val(),
+                    password:password.val()
+                },
+                success:function(res){
+                    if(res.code == 20000){
+                        layer.msg(res.msg, {icon: 6, time: 3000}, function(){
+                            history.go(-1);
+                        });
+
+                    }else{
+                        layer.msg(res.msg, {icon: 5});
+                    }
+                },
+                error: function(){
+                    layer.msg('发生了一丁丁错误...', {icon: 5});
+                }
+            });
+            return false;
+        })
+    });
+</script>

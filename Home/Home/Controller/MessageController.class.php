@@ -17,8 +17,8 @@ class MessageController extends BaseController{
      * 添加留言
      */
     public function add(){
-
-        $html = $this->html($this->getCommlist());
+        $model = D('Message');
+        $html = $this->html($model->getCommlist());
 //var_dump($_SESSION);
         if(IS_POST){
             $content = $_POST['content'];
@@ -38,33 +38,6 @@ class MessageController extends BaseController{
 
         $this->assign('html', $html);
         $this->display();
-    }
-
-    /**
-     * 递归获取评论
-     * @param int $parent_id
-     * @param array $result
-     * @return array|bool
-     */
-    protected function getCommlist($parent_id = 0,&$result = array())
-    {
-        $arr = D('Message')->alias('a')
-            ->field('a.*, b.fdNickName')
-            ->join('tbusers AS b ON a.fdUserId = b.id', 'LEFT')
-            ->where(['a.fdParentId' => $parent_id, 'a.fdDel' => 0])
-            ->order('a.fdAddTime DESC')
-            ->limit(0, 15)
-            ->select();
-
-        if(empty($arr)) return false;
-
-        foreach ($arr as &$cm) {
-            $thisArr        = &$result[];
-            $cm['children'] = $this->getCommlist($cm['id'], $thisArr);
-            $thisArr        = $cm;
-        }
-
-        return $result;
     }
 
     /**
@@ -96,6 +69,7 @@ class MessageController extends BaseController{
         }
         return $html;
     }
+
     /**
      * 删除留言
      */

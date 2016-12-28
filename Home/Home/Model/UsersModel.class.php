@@ -21,6 +21,10 @@ class UsersModel extends RelationModel{
         return $this->where($where)->$type();
     }
 
+    public function update_user($where, $data){
+        return $this->where($where)->save($data);
+    }
+
     public function add_user($post){
         return $this->add($post);
     }

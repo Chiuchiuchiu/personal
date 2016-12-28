@@ -72,9 +72,7 @@ function regex_check($type, $str){
 function get_user($id){
     $key = 'user_' . $id;
     $v = S($key);
-    if($v){
-        return $v;
-    }
+    if($v) return $v;
     $data = M('Users')->where(['id' => $id])->find();
     S($key, $data, 3600);
     return $data;

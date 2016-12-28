@@ -15,10 +15,10 @@
         </div>
         <div class="col-lg-3 col-md-4 col-sm-4 text-right fh5co-link-wrap">
             <ul class="fh5co-special" data-offcanvass="yes">
-                <if condition="$user_id">
-                    <li>欢迎回来 {$user_name}  <span style="cursor: pointer;font-size: 12px" class="logout"><退出></span></li>
+                <if condition="$_SESSION['id']">
+                    <li>欢迎回来 {$_SESSION['name']}  <a href="{:U('Home/Index/logout')}" style="cursor: pointer;font-size: 12px" class="logout"><退出></a></li>
                 <else/>
-                    <li><a href="{:U('Admin/Admin/index')}" class="call-to-action">Login</a></li>
+                    <li><a href="{:U('Home/SignUp/login')}" class="call-to-action">Login</a></li>
                 </if>
             </ul>
         </div>

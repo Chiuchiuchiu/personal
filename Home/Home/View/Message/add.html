@@ -91,12 +91,12 @@
     });
 
     $('#post_message').submit(function(){
-        if("{$_SESSION['type']}"){
+        if("{$user_id}"){
             add();
         }else{
             //询问框
             layer.confirm('您还未登录,是否需要登录?否则系统只会记录你的ip', {
-                btn: ['去登录','回复'] //按钮
+                btn: ['去登录','继续发'] //按钮
             }, function(){
                 layer.msg('GOGOGO!', {icon: 1, time: 1000},function(){
                     window.location.href="{:U('Home/SignUp/login')}";
