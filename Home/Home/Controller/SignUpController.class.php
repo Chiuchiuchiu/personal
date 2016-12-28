@@ -86,37 +86,6 @@ class SignUpController extends BaseController{
     }
 
     /**
-     * 前台用户登录
-     */
-    public function login(){
-
-        if(IS_POST){
-            $user_name = I('user_name', '', 'strip_tags,trim');
-            $user_pwd  = I('password', '', 'strip_tags,trim');
-
-            $user_name || $this->ajaxResponse(40001, $this->config[40001]);
-            $user_pwd || $this->ajaxResponse(40001, $this->config[40001]);
-
-            $user_model = D('Users');
-            $user = $user_model->get_user('', '', $user_name, '', 'find');
-            $user || $this->ajaxResponse(40002, $this->config[40002]);
-            $user['fdPassword'] == md5(md5($user_pwd)) || $this->ajaxResponse(40003, $this->config[40003]);
-
-            /* 更新登录时间 */
-            $user_model->update_user(['id' => $user['id']], ['fdIp' => get_client_ip(), 'fdLogTime' => time()]);
-
-            /* 写入session */
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['name'] = $user['fdNickName'];
-            $_SESSION['type'] = $user['fdType'];
-
-            $this->ajaxResponse(20000, $this->config[20000]);
-        }
-
-        $this->display();
-    }
-
-    /**
      * 发送邮件验证码
      */
     //TODO:这功能以后可以做注册、推送等

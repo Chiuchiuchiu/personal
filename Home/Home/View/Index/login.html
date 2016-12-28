@@ -50,7 +50,7 @@
             }
 
             $.ajax({
-                url: "{:U('Home/SignUp/login')}",
+                url: "{:U('Home/Index/login')}",
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -59,8 +59,8 @@
                 },
                 success:function(res){
                     if(res.code == 20000){
-                        layer.msg(res.msg, {icon: 6, time: 3000}, function(){
-                            history.go(-1);
+                        layer.msg(res.msg, {time: 2000}, function(){
+                            window.location.href = "{:U('Home/Index/index')}";
                         });
 
                     }else{
