@@ -34,7 +34,7 @@ CREATE TABLE `tbadmin` (
 -- ----------------------------
 -- Records of tbadmin
 -- ----------------------------
-INSERT INTO `tbadmin` VALUES ('1', null, 'chiu', '14e1b600b1fd579f47433b88e8d85291', '2016-03-20', '651468b37f95f5f421cccbf8fb7ee376', '2016-12-26', '1');
+INSERT INTO `tbadmin` VALUES ('1', '', 'chiu', '14e1b600b1fd579f47433b88e8d85291', '2016-03-20', '651468b37f95f5f421cccbf8fb7ee376', '2016-12-26', '1');
 
 -- ----------------------------
 -- Table structure for `tbcategory`
@@ -121,7 +121,7 @@ CREATE TABLE `tbusers` (
 -- ----------------------------
 -- Records of tbusers
 -- ----------------------------
-INSERT INTO `tbusers` VALUES ('1', 'chiu', '14e1b600b1fd579f47433b88e8d85291', '1479201054', '1482918516', '2147483647', '123@123.com', '2', '127.0.0.1', '0');
+INSERT INTO `tbusers` VALUES ('1', 'chiu', '14e1b600b1fd579f47433b88e8d85291', '1479201054', '1482918516', '0', '0', '2', '0', '0');
 
 -- ----------------------------
 -- Table structure for `tbverify`

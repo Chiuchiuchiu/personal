@@ -6,6 +6,7 @@ use Think\Model;
 
 class IndexController extends BaseController {
     public function index(){
+
         $this->display('index');
     }
 
