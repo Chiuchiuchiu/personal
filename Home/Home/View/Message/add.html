@@ -26,9 +26,19 @@
                     <p class="wow fadeInUp" ><i class="icon icon-pencil"></i> 畅所欲言 <i class="icon icon-pencil"></i></p>
                 </div>
             </div>
-            <div class="row">
+
                 <div class="clearfix visible-sm-block visible-xs-block"></div>
-                {$html}
+                <div class="data_info">
+                    {$html}
+                </div>
+            </div>
+            <div class="row more_div">
+                <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp">
+                    <input type="hidden" name="page_num" value="1"/>
+                    <a href="javascript:;" class="more_data">
+                        加载更多<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -76,6 +86,19 @@
         $('.close').click(function(){
             $('.theme-popover-mask').fadeOut(100);
             $('.theme-popover').slideUp(200);
+        });
+    });
+
+    $('.more_data').click(function(){
+        var page = $('input[name="page_num"]').val();
+        $.get("{:U('Home/Message/get_more_data')}", {page:page}, function(re){
+            if(re.code == 20000){
+                $('.data_info').append(re.msg);
+                $('input[name="page_num"]').val(page += 1);
+            }else{
+                layer.msg(re.msg);
+            }
+
         })
     });
 
@@ -98,8 +121,10 @@
             layer.confirm('您还未登录,是否需要登录?否则系统只会记录你的ip', {
                 btn: ['去登录','继续发'] //按钮
             }, function(){
+                //关闭浮层
+                $('.theme-popover').slideUp(200);
                 layer.msg('GOGOGO!', {icon: 1, time: 1000},function(){
-                    window.location.href="{:U('Home/SignUp/login')}";
+                    window.location.href="{:U('Home/Index/login')}";
                 });
             }, function(){
                 add();
@@ -109,16 +134,19 @@
     });
 
     function add(){
-        var _this = $(this);
         var content = ue.getContent();
         var cid = $('input[name="cid"]').val();
 
         if(!content){layer.msg('请输入内容...');return false;}
         if(!cid){layer.msg('参数缺失,请联系博主...');return false;}
 
-        _this.find('button[type=submit]').prop('disabled', true);
+        //防止重复提交
+        $('button[type="submit"]').attr('disabled', true);
         $.post("{:U('Home/Message/add')}", {content:content,parent_id:cid}, function(re){
-            layer.msg(re.msg, {time:2000}, function(){
+            if(re.code != 20000){
+                $('button[type="submit"]').removeAttr('disabled');
+            }
+            layer.msg(re.msg, {time:1000}, function(){
                 window.location.reload();
             });
         });

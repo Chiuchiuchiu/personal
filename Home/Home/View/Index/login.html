@@ -1,6 +1,7 @@
 <style>
     .form-control {
         margin:0 40% 10px 41%;width:210px;background:rgba(0, 0, 0, 0);
+        color: #ffffff;
     }
 </style>
 <div style="background:#262626">
@@ -59,7 +60,7 @@
                 },
                 success:function(res){
                     if(res.code == 20000){
-                        layer.msg(res.msg, {time: 2000}, function(){
+                        layer.msg(res.msg, {time: 1000}, function(){
                             window.location.href = "{:U('Home/Index/index')}";
                         });
 

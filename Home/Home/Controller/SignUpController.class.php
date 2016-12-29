@@ -75,7 +75,7 @@ class SignUpController extends BaseController{
                 }
 
                 $v_model->commit();
-                $this->ajaxResponse(20000, '注册成功:)请登录！');
+                $this->ajaxResponse(20000, '注册成功:)请重新登录！');
             }catch (\Exception $e){
                 $v_model->rollback();
                 $this->ajaxResponse(99999, $e->getMessage());

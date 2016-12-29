@@ -12,6 +12,7 @@ use Parent\Controller\BaseController;
 use Think\Controller;
 
 class MessageController extends BaseController{
+    public $limit = 15; //每页显示多少条
 
     /**
      * 添加留言
@@ -41,12 +42,26 @@ class MessageController extends BaseController{
     }
 
     /**
+     * 异步加载下一页
+     */
+    public function get_more_data(){
+        $page = I('get.page', 0, "intval");
+        $page || $this->ajaxResponse(50000, $this->config[50000]);
+
+        $model = D('Message');
+        $page_rows = $this->limit * $page;
+        $data = $model->getCommlist($page_rows);
+        $data ? $this->ajaxResponse(20000, $this->html($data)) : $this->ajaxResponse(60001, $this->config[60001]);
+
+    }
+
+    /**
      * 递归嵌套评论html
      * @param $list
      * @return string
      */
     protected function html($list){
-        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes"><a href="#send_msg" class="op">评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
+        if(!$list) return '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes"><a href="javascript:;" class="reply" cid="0" uname="">评论(0),抢个沙发<i class="icon-arrow-down"></i></a></div>';
         $html = '';
         foreach($list as &$v){
             $html .= '<div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 wow fadeInUp mes">';

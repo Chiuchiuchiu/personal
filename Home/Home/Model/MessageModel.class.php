@@ -18,17 +18,17 @@ class MessageModel extends RelationModel{
      * @param array $result
      * @return array|bool
      */
-    public function getCommlist($parent_id = 0,&$result = array())
+    public function getCommlist($parent_id = 0, $first_row = 0, $limit = 15,  &$result = array())
     {
         $arr = D('Message')->alias('a')
             ->field('a.*, b.fdNickName')
             ->join('tbusers AS b ON a.fdUserId = b.id', 'LEFT')
             ->where(['a.fdParentId' => $parent_id, 'a.fdDel' => 0])
             ->order('a.fdAddTime DESC')
-            ->limit(0, 15)
+            ->limit($first_row, $limit)
             ->select();
 
-        if(empty($arr)) return false;
+        if(empty($arr)) return [];
 
         foreach ($arr as &$cm) {
             $thisArr        = &$result[];
