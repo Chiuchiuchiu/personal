@@ -68,11 +68,11 @@ class SignUpController extends BaseController{
                     'fdLogTime' => time(),
                     'fdDel' => 0,
                 ];
-//                //更改验证码状态
-//                if($u_model->add_user($user_add) === false){
-//                    $v_model->rollback();
-//                    throw new Exception('添加失败！');
-//                }
+                //更改验证码状态
+                if($u_model->add_user($user_add) === false){
+                    $v_model->rollback();
+                    throw new Exception('添加失败！');
+                }
 
                 $v_model->commit();
                 $this->ajaxResponse(20000, '注册成功:)请重新登录！');
