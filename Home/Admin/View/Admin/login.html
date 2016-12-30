@@ -100,7 +100,7 @@
                     <input class="m-wrap" name="verify" type="text" placeholder="Verify"/>
                 </div>
                 <br/>
-                <img class="verify_img" alt="验证码" src="{:U('Admin/Admin/create_verify')}">
+                <img class="verify_img" alt="验证码" src="{:U('Admin/Admin/create_verify')}" id="verify">
             </div>
         </div>
 
@@ -181,23 +181,30 @@
 
         Login.init();
 
+        $('#verify').click(function(){
+            $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
+        })
+
     });
 
     function login(){
         var username = $("input[name='username']").val();
         var password = $("input[name='password']").val();
         var verify = $("input[name='verify']").val();
-        //刷新验证码
-        $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
+
         $.ajax({
             url:"{:U('Admin/Index')}",
             type:"post",
+            async:false,
             data:{username:username, password:password, verify:verify},
             dataType : "json",
             success : function(data) {
                 layer.msg(data.msg);
                 if(data.code == 20000){
                     window.location.href = "{:U('Backstage/visitor_list')}";
+                }else{
+                    //刷新验证码
+                    $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
                 }
             }
         })
