@@ -195,7 +195,7 @@
         $.ajax({
             url:"{:U('Admin/Index')}",
             type:"post",
-            async:false,
+            async:false,    //异步可能导致验证码不正确
             data:{username:username, password:password, verify:verify},
             dataType : "json",
             success : function(data) {

@@ -75,15 +75,7 @@ class AdminController extends BaseController {
     }
 
     function create_verify($length = 1){
-        //验证码
-        $Verify = new \Think\Verify();
-        $Verify->codeSet = '0123456789';
-        $Verify->imageH = '40';
-        $Verify->imageW = '100';
-        $Verify->length = $length;
-        $Verify->fontSize = '20';
-        $Verify->useCurve = false;
-        $Verify->entry();
+        create_verify($length);
     }
 
     // 检测输入的验证码是否正确，$code为用户输入的验证码字符串

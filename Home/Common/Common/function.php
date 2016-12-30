@@ -100,4 +100,20 @@ function unSetString($str)
     return stripslashes($str);
 }
 
+/**
+ * 生成验证码
+ * @param $length
+ */
+function create_verify($length){
+    //验证码
+    $Verify = new \Think\Verify();
+    $Verify->codeSet = '0123456789';
+    $Verify->imageH = '36';
+    $Verify->imageW = '210';
+    $Verify->length = $length;
+    $Verify->fontSize = '20';
+    $Verify->useCurve = false;
+    $Verify->entry();
+}
+
 

@@ -18,8 +18,9 @@
                 <input class="form-control wow fadeInUp" type="password" name="password" placeholder="请输入密码"/>
                 <input class="form-control wow fadeInUp" type="text" name="phone" placeholder="请输入手机"/>
                 <input class="form-control wow fadeInUp" type="text" name="mail" placeholder="请输入邮箱"/>
-                <!--<a href="javascript:;" class="form-control btn btn-primary btn-sm btn-outline wow fadeInUp" id="btn"/>获取验证码</a>-->
-                <!--<input class="form-control wow fadeInUp" type="text" name="verify" placeholder="请输入验证码"/>-->
+                <input class="form-control wow fadeInUp" type="text" name="verify" placeholder="请输入验证码"/>
+                <img class="verify_img wow fadeInUp" style="margin: 0 0 10px 41%" alt="验证码" src="{:U('Admin/Admin/create_verify')}" id="verify">
+
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <button class="btn btn-success btn-sm btn-outline wow fadeInUp" type="submit">注册</button>
                     <a href="{:U('Index/index')}" class="btn btn-success btn-sm btn-outline wow fadeInUp" >返回首页</a>
@@ -41,7 +42,7 @@
         var password = $("input[name='password']");
         var email = $("input[name='mail']");
         var phone = $("input[name='phone']");
-//        var verify = $("input[name='verify']");
+        var verify = $("input[name='verify']");
 
         //虛擬云主機不支持sockets
 //        $('#btn').click(function () {
@@ -102,22 +103,23 @@
                 layer.msg('邮箱呢??');
                 return false;
             }
-//            if(!verify.val()){
-//                verify.focus();
-//                layer.msg('验证码呢??');
-//                return false;
-//            }
+            if(!verify.val()){
+                verify.focus();
+                layer.msg('验证码呢??');
+                return false;
+            }
 
             $.ajax({
                 url: "{:U('Home/SignUp/register')}",
                 type: "POST",
+                async: false,
                 dataType: "json",
                 data: {
                     nick_name:nick_name.val(),
                     password:password.val(),
                     email:email.val(),
                     phone:phone.val(),
-//                    verify:verify.val()
+                    verify:verify.val()
                 },
                 success:function(res){
                     if(res.code == 20000){
@@ -127,14 +129,20 @@
 
                     }else{
                         layer.msg(res.msg, {icon: 5});
+                        $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
                     }
                     $(this).removeAttr('disabled');
                 },
                 error: function(){
                     layer.msg('发生了一丁丁错误...', {icon: 5});
+                    $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
                 }
             });
             return false;
+        });
+
+        $('#verify').click(function(){
+            $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
         })
     });
 </script>
