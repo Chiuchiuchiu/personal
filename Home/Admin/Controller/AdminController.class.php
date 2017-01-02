@@ -74,7 +74,7 @@ class AdminController extends BaseController {
         $this->redirect('login');
     }
 
-    function create_verify($length = 1){
+    function create_verify($length = 3){
         create_verify($length);
     }
 

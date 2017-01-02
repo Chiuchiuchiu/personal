@@ -49,7 +49,7 @@
                 layer.msg('密码呢??');
                 return false;
             }
-
+            $('button[type="submit"]').attr('disabled', true);
             $.ajax({
                 url: "{:U('Home/Index/login')}",
                 type: "POST",
@@ -66,10 +66,12 @@
 
                     }else{
                         layer.msg(res.msg, {icon: 5});
+                        $('button[type="submit"]').attr('disabled', false);
                     }
                 },
                 error: function(){
                     layer.msg('发生了一丁丁错误...', {icon: 5});
+                    $('button[type="submit"]').attr('disabled', false);
                 }
             });
             return false;

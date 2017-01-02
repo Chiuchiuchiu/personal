@@ -81,7 +81,7 @@
 //        });
 
         $("#register").submit(function(){
-            $(this).attr('disabled');
+            $('button[type="submit"]').attr('disabled', true);
             //提交注册
             if(!nick_name.val()){
                 nick_name.focus();
@@ -131,10 +131,11 @@
                         layer.msg(res.msg, {icon: 5});
                         $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
                     }
-                    $(this).removeAttr('disabled');
+                    $('button[type="submit"]').attr('disabled', false);
                 },
                 error: function(){
                     layer.msg('发生了一丁丁错误...', {icon: 5});
+                    $('button[type="submit"]').attr('disabled', false);
                     $('.verify_img').attr('src', "{:U('Admin/Admin/create_verify')}");
                 }
             });

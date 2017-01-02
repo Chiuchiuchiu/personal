@@ -13,7 +13,6 @@ namespace Home\Controller;
 use Parent\Controller\BaseController;
 use Think\Exception;
 
-
 class SignUpController extends BaseController{
     /**
      * 注册页面
@@ -21,18 +20,18 @@ class SignUpController extends BaseController{
     public function register()
     {
         if(IS_POST){
-
             $email = I('post.email', '', 'strip_tags,trim');
             $phone = I('post.phone', 0);
             $password = I('post.password', '', 'strip_tags,trim');
             $nickname = I('post.nick_name', '', 'strip_tags,trim');
-//            $verify = I('post.verify', 0, 'intval');
+            $verify = I('post.verify', 0, 'intval');
 
             $nickname || $this->ajaxResponse(40009, $this->config[40009]);
             $password || $this->ajaxResponse(40010, $this->config[40010]);
             $phone || $this->ajaxResponse(40013, $this->config[40013]);
             $email || $this->ajaxResponse(40012, $this->config[40012]);
-//            $verify || $this->ajaxResponse(40005, $this->config[40005]);
+            $verify || $this->ajaxResponse(40005, $this->config[40005]);
+            $this->check_verify($verify) || $this->ajaxResponse(40006, $this->config[40006]);
 
             regex_check('phone', $phone) || $this->ajaxResponse(40013, $this->config[40013]);
             regex_check('email', $email) || $this->ajaxResponse(40008, $this->config[40008]);
@@ -41,9 +40,9 @@ class SignUpController extends BaseController{
             $u_model = D('Users');
             $ip = get_client_ip();
 
-            //查找验证码是否存在
-//            $verify_list = $v_model->check_log($email);
-//            in_array($verify, $verify_list) || $this->ajaxResponse(40006, $this->config[40006]);
+            //查找验证码是否存在,服务器不支持socket,暂时弃用
+            /*$verify_list = $v_model->check_log($email);
+            in_array($verify, $verify_list) || $this->ajaxResponse(40006, $this->config[40006]);*/
 
             //查找用户是否有重复
             $u_model->get_user($phone, '', $nickname, $email, 'count') && $this->ajaxResponse(50003, $this->config[50003]);
@@ -52,11 +51,11 @@ class SignUpController extends BaseController{
             try{
                 $v_model->startTrans();
 
-//                //更改验证码状态
-//                if($v_model->change_verify($email, $verify) === false){
-//                    $v_model->rollback();
-//                    throw new Exception('更新失败！');
-//                }
+                //更改验证码状态,服务器不支持socket,暂时弃用
+                /*if($v_model->change_verify($email, $verify) === false){
+                    $v_model->rollback();
+                    throw new Exception('更新失败！');
+                }*/
 
                 $user_add = [
                     'fdMail' => $email,
@@ -68,7 +67,7 @@ class SignUpController extends BaseController{
                     'fdLogTime' => time(),
                     'fdDel' => 0,
                 ];
-                //更改验证码状态
+                //添加用户
                 if($u_model->add_user($user_add) === false){
                     $v_model->rollback();
                     throw new Exception('添加失败！');
@@ -115,5 +114,15 @@ class SignUpController extends BaseController{
         //保存验证码，后续验证
         $add = $send === true ? $model->save_verify($verity_str, $mail, $add_time) : false;
         $add ? $this->ajaxResponse(20000, $this->config[20000]) : $this->ajaxResponse(50001, $this->config[50001]);
+    }
+
+    /**
+     * 检验验证码
+     * @param $code
+     * @return bool
+     */
+    public function check_verify($code){
+        $verify = new \Think\Verify();
+        return $verify->check($code);
     }
 } 
