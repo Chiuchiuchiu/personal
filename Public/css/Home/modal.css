@@ -15,16 +15,21 @@
     display:none
 }
 .theme-popover {
+
     z-index:9999;
-    position:fixed;
-    top:30%;
-    left:50%;
-    width: 660px;
-    height: auto;
-    margin:-180px 0 0 -330px;
+    /*position:absolute;*/
+    /*top:30%;*/
+    /*left:50%;*/
+    width: 380px;
+    height: 400px;
+    /*margin:-180px 0 0 -330px;*/
     border-radius:5px;
     border:solid 2px #666;
     background-color:#fff;
     display:none;
     box-shadow: 0 0 10px #666;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform:translate(-50%,-50%);
 }
