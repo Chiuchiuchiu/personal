@@ -71,4 +71,18 @@ class FileController extends PersonalController{
         $this->display();
     }
 
+    /**
+     * 删除图片包括文件
+     */
+    public function del_pic(){
+//        删除文件用@unlink()
+
+        $id = I('id', 0, "intval");
+        $save_path = I('save_path', '', 'strip_tags,trim');
+        ($id || $save_path) && $this->ajaxResponse(50000, $this->config[50000]);
+
+        /* 先删除数据库记录再删除文件 */
+
+
+    }
 } 
