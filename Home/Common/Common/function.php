@@ -20,6 +20,7 @@ function upload_pic($rootPath, $savePath){
     $upload->rootPath = $rootPath; // 设置附件上传根目录
     $upload->savePath = $savePath; // 设置附件上传目录
     $upload->autoSub  = false;  // 不要在上传目录下再生成一个日期文件夹
+    $upload->maxSize = 3292200;
     $info   =   $upload->upload();
 
     return ($info ? $info : $upload->getError());

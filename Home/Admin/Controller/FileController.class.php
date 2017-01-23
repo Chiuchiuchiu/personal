@@ -17,6 +17,7 @@ class FileController extends PersonalController{
 
     public function photo_list(){
         $model = D('Photo');
+        $CATEGORY_TYPE = C('CATEGORY_TYPE');
         $count = $model->count();
         $page = new Page($count, 10);
 
@@ -25,8 +26,10 @@ class FileController extends PersonalController{
         $show = $page->show();
 
         $list = $model->get_list($page->firstRow, $page->listRows);
+
         foreach($list as &$v){
-            $v['cate'] = C('CATEGORY_TYPE')[$v['fdCategoryId']];
+            $v['cate'] = $CATEGORY_TYPE[$v['fdCategoryId']];
+            $v['photo'] = $v['fdUrl'];
         }
 
         $this->assign('page', $show);
@@ -55,10 +58,10 @@ class FileController extends PersonalController{
             !is_array($upload) && $this->error($upload);
             $add_data = [];
             foreach($upload as $key => $v){
-                $add_data[$key]['fdUrl'] = '/Public/' . $v['savepath'] . $v['savename'];
+                $add_data[$key]['fdUrl'] = '/Public/uploads/' . $v['savepath'] . $v['savename'];
                 $add_data[$key]['fdName'] = $_FILES['file']['name'][$key];
                 $add_data[$key]['fdCategoryId'] = $post['cate'];
-                $add_data[$key]['fdCreate'] = date('Y-m-d H:i:s');
+                $add_data[$key]['fdCreate'] = time();
             }
 
             $add = D('Photo')->add_log($add_data);
@@ -75,14 +78,18 @@ class FileController extends PersonalController{
      * 删除图片包括文件
      */
     public function del_pic(){
-//        删除文件用@unlink()
+        //删除文件用@unlink()
+        $id = I('get.id', 0, 'int');
+        $id == 0 && $this->ajaxResponse(50000, $this->config[50000]);
 
-        $id = I('id', 0, "intval");
-        $save_path = I('save_path', '', 'strip_tags,trim');
-        ($id || $save_path) && $this->ajaxResponse(50000, $this->config[50000]);
+        $photo_sql = D('Photo');
 
         /* 先删除数据库记录再删除文件 */
+        $url = $photo_sql->where(['id' => $id])->getField('fdUrl');
+        $del_path = $_SERVER['DOCUMENT_ROOT'] . $url; //根目录
 
+        $photo_sql->where(['id' => $id])->delete() && @unlink($del_path); //删除
 
+        $this->ajaxResponse(20000, $this->config[20000]);
     }
 } 

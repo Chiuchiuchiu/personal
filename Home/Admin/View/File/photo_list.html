@@ -16,26 +16,6 @@
 
             <ul class="breadcrumb">
 
-                <!--<li>-->
-
-                <!--<i class="icon-home"></i>-->
-
-                <!--<a href="">Home</a>-->
-
-                <!--<i class="icon-angle-right"></i>-->
-
-                <!--</li>-->
-
-                <!--<li>-->
-
-                <!--<a href="#">Data Tables</a>-->
-
-                <!--<i class="icon-angle-right"></i>-->
-
-                <!--</li>-->
-
-                <!--<li><a href="#">Basic Tables</a></li>-->
-
             </ul>
 
             <!-- END PAGE TITLE & BREADCRUMB-->
@@ -98,15 +78,15 @@
 
                             <tr>
 
-                                <td><img src=""/></td>
+                                <td><a href="{$vo.fdUrl}" target="_blank"><img src="{$vo.photo}" style="width: 30px;height: 30px;" alt="{$vo.fdUrl}"/></a></td>
 
-                                <td>{$vo.fdIP}</td>
+                                <td>{$vo.cate}</td>
 
                                 <td>{$vo.fdName}</td>
 
-                                <td>{$vo.fdLng}</td>
+                                <td>{$vo.fdUrl}</td>
 
-                                <td>{$vo.fdCreate}</td>
+                                <td>{$vo.fdCreate|date='Y-m-d H:i:s',###}</td>
 
                                 <td>
 
@@ -126,7 +106,7 @@
 
                         <ul class="pagination">
 
-                            <div class="yahoo2">{$page}<div/>
+                            <div class="yahoo2">{$page}</div>
 
                         </ul>
 
@@ -151,15 +131,13 @@
 
 </div>
 <script type="text/javascript">
-
     function del(id){
-        console.log(id);
         layer.msg('你确定要删除该图片？', {
             time: 0 //不自动关闭
             ,btn: ['係啊', '等阵']
             ,yes: function(index){
                 layer.close(index); //先关闭原来的框
-                $.get( "?id=" + id, function (re){
+                $.get("{:U('File/del_pic')}?id=" + id, function (re){
                     layer.open({
                         content: re.msg,
                         time: 2000,

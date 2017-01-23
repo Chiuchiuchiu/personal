@@ -150,13 +150,12 @@
 </div>
 <script type="text/javascript">
     function del(id){
-        console.log(id);
         layer.msg('你确定要删除该IP？', {
             time: 0 //不自动关闭
             ,btn: ['係啊', '等阵']
             ,yes: function(index){
                 layer.close(index); //先关闭原来的框
-                $.get("{:U('Backstage/del')}" + "?id=" + id, function (re){
+                $.get("{:U('Backstage/del')}?id=" + id, function (re){
                     layer.open({
                         content: re.msg,
                         time: 2000,
