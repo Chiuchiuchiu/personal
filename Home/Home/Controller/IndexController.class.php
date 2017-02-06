@@ -7,6 +7,8 @@ use Think\Model;
 class IndexController extends BaseController {
     public function index(){
 
+        $this->assign('all_count', D('visitors')->count());
+        $this->assign('day_count', D('visitors')->where(['fdCreate' => ['BETWEEN' => [strtotime(date('Y-m-d')), strtotime(date('Y-m-d 23:59:59'))]]])->count());
         $this->display('index');
     }
 
